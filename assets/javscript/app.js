@@ -1,15 +1,26 @@
-var queryURL = "https://superheroapi.com/api.php/10213837355721301/search/batman";
+var responseIndex = 0;
 
-$.ajaxPrefilter(function(options) {
-    if (options.crossDomain && jQuery.support.cors) {
-        options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-    }
-});
+$("#button-addon1").on("click", function () {
+    console.log("clicked");
+    var userSearch = $("#userInputLeft").val().trim();
+    var superHero = userSearch;
 
-$.get(
-    queryURL,
-    function (response) {
-        console.log(response);
+    var queryURL = "https://superheroapi.com/api/10213837355721301/search/" + superHero;
+
+    $.ajaxPrefilter(function (options) {
+        if (options.crossDomain && jQuery.support.cors) {
+            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+        }
+    });
+
+    $.get(
+        queryURL,
+        function (response) {
+            var results = response[responseIndex];
+            console.log(response);
+            $("#name1").text(response.results.name);
+        });
+
 });
 
 //$(".challenge-link").click( function (){
@@ -44,7 +55,7 @@ $.get(
 //        var s1Stat = superHero1.results.powerstats.intelligence;
 //        var s2Stat = superHero2.results.powerstats.intelligence;
 //        compareStats(s1Stat, s2Stat);
-       
+
 //    }
 //});
 
