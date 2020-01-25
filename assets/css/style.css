@@ -1,0 +1,47 @@
+.header {
+    font-family: 'Bangers', cursive;
+    font-size: 60px;
+} 
+
+.card-header {
+    font-family: 'Bangers', cursive;
+    font-size: 25px;
+}
+
+.btn {
+    font-family: 'Bangers', cursive;
+    font-size: 15px;
+
+}
+
+.form-control {
+    font-family: 'Bangers', cursive;
+    font-size: 15px;
+}
+
+.list-header {
+    font-family: 'Bangers', cursive;
+    font-size: 30px;
+}
+
+.list-group-item {
+    font-family: 'Bangers', cursive;
+    font-size: 15px;
+}
+
+.list-group-item:hover, .list-group-item.active {
+    background: #dc3545;
+    color: ghostwhite;
+    box-shadow: none;
+ }
+
+ .zoom {
+    transition: transform .2s;
+    margin: 0 auto;
+  }
+
+ .zoom:hover {
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1); 
+  }
