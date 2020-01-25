@@ -16,7 +16,8 @@ $("#button-addon1").on("click", function () {
         function (response) {
             console.log(response);
             $("#name1").text(response.results[0].name); //The first search result isn't always the one we want. We'll have to fix that.
-    });
+        }
+    );
 });
 
 //$(".challenge-link").click( function (){
