@@ -2,9 +2,7 @@ var responseIndex = 0;
 
 $("#button-addon1").on("click", function () {
     console.log("clicked");
-    var userSearch = $("#userInputLeft").val().trim();
-    var superHero = userSearch;
-
+    var superHero = $("#userInputLeft").val().trim();
     var queryURL = "https://superheroapi.com/api/10213837355721301/search/" + superHero;
 
     $.ajaxPrefilter(function (options) {
@@ -16,11 +14,9 @@ $("#button-addon1").on("click", function () {
     $.get(
         queryURL,
         function (response) {
-            var results = response[responseIndex];
             console.log(response);
-            $("#name1").text(response.results.name);
-        });
-
+            $("#name1").text(response.results[0].name); //The first search result isn't always the one we want. We'll have to fix that.
+    });
 });
 
 //$(".challenge-link").click( function (){
