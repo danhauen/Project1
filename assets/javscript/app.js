@@ -1,4 +1,4 @@
-var responseIndex = 0;
+// var responseIndex = 0;
 
 $("#button-addon1").on("click", function () {
     console.log("clicked");
@@ -16,9 +16,20 @@ $("#button-addon1").on("click", function () {
     $.get(
         queryURL,
         function (response) {
-            var results = response[responseIndex];
+            var supeName = response.results[0].name;
+            var nameResults = response.results[0].biography["full-name"];
+            var birthResults = response.results[0].biography["place-of-birth"];
+            var firstAppearResults = response.results[0].biography["first-appearance"];
+            var alignment = response.results[0].biography.alignment;
+            var superImage = response.results[0].image.url;
             console.log(response);
-            $("#name1").text(response.results.name);
+            console.log(response.results);
+            $("#challenger1").text(supeName);
+            $("#name1").text("Name: " + nameResults);
+            $("#birthPlace1").text("Place of Birth: " + birthResults);
+            $("#firstAppear1").text("First Appearance: " + firstAppearResults);
+            $("#superImage1").attr("src", superImage);
+            $("#alignment1").text("Alignment: " + alignment);
         });
 
 });
