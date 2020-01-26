@@ -1,42 +1,62 @@
-// var responseIndex = 0;
+var responseIndex = -1;
+var heroes = {
+    superName: ["",""],
+    nameResults: ["",""],
+    birthResults: ["",""],
+    firstAppearResults: ["",""],
+    alignment: ["",""],
+    image: ["",""],
+    statInt:[0,0],
+    statStr:[0,0],
+    statSpd:[0,0],
+    statDur:[0,0],
+    statPow:[0,0],
+    statCom:[0,0],
+    display: function(){
+        $("#challenger" + responseIndex).text(this.superName[responseIndex]);
+        $("#name" + responseIndex).text("Name: " + this.nameResults[responseIndex]);
+        $("#birthPlace" + responseIndex).text("Place of Birth: " + this.birthResults[responseIndex]);
+        $("#firstAppear" + responseIndex).text("First Appearance: " + this.firstAppearResults[responseIndex]);
+        $("#superImage" + responseIndex).attr("src", this.image[responseIndex]);
+        $("#alignment" + responseIndex).text("Alignment: " + this.alignment[responseIndex]);
+    },
+};
 
-$("#button-addon1").on("click", function () {
-    console.log("clicked");
-    var superHero = $("#userInputLeft").val().trim();
+$("button").on("click", function() {
+    responseIndex = parseInt($(this).attr("id").slice(-1));
+
+    var superHero = $("#userInput" + responseIndex).val().trim();
     var queryURL = "https://superheroapi.com/api/10213837355721301/search/" + superHero;
 
-    $.ajaxPrefilter(function (options) {
+    $.ajaxPrefilter(function(options) {
         if (options.crossDomain && jQuery.support.cors) {
             options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
         }
     });
 
-    $.get(
-        queryURL,
-        function (response) {
-            var supeName = response.results[0].name;
-            var nameResults = response.results[0].biography["full-name"];
-            var birthResults = response.results[0].biography["place-of-birth"];
-            var firstAppearResults = response.results[0].biography["first-appearance"];
-            var alignment = response.results[0].biography.alignment;
-            var superImage = response.results[0].image.url;
-            console.log(response);
-            console.log(response.results);
-            $("#challenger1").text(supeName);
-            $("#name1").text("Name: " + nameResults);
-            $("#birthPlace1").text("Place of Birth: " + birthResults);
-            $("#firstAppear1").text("First Appearance: " + firstAppearResults);
-            $("#superImage1").attr("src", superImage);
-            $("#alignment1").text("Alignment: " + alignment);
-        });
-
+    $.get(queryURL, function(response) {
+        heroes.superName[responseIndex] = response.results[0].name;
+        heroes.nameResults[responseIndex] = response.results[0].biography["full-name"];
+        heroes.birthResults[responseIndex] = response.results[0].biography["place-of-birth"];
+        heroes.firstAppearResults[responseIndex] = response.results[0].biography["first-appearance"];
+        heroes.alignment[responseIndex] = response.results[0].biography.alignment;
+        heroes.image[responseIndex] = response.results[0].image.url;
+        heroes.statInt[responseIndex] = parseInt(response.results[0].powerstats.intelligence);
+        heroes.statStr[responseIndex] = parseInt(response.results[0].powerstats.strength);
+        heroes.statSpd[responseIndex] = parseInt(response.results[0].powerstats.speed);
+        heroes.statDur[responseIndex] = parseInt(response.results[0].powerstats.durability);
+        heroes.statPow[responseIndex] = parseInt(response.results[0].powerstats.power);
+        heroes.statCom[responseIndex] = parseInt(response.results[0].powerstats.combat);
+        heroes.display();
+        console.log(heroes);
+        responseIndex = -1;
+    });
 });
 
-//$(".challenge-link").click( function (){
-//    var challenge = $(this).html()
-//    console.log (challenge)
+$(".list-group-item-action").click( function (){
+    var challenge = $(this).html();
+    console.log(challenge);
 
-//
 //   if (challenge === "Strength") {
 //        var s1Stat = superHero1.results.powerstats.strength;
 //        var s2Stat = superHero2.results.powerstats.strength;
@@ -60,13 +80,13 @@ $("#button-addon1").on("click", function () {
 //        var s2Stat = superHero2.results.powerstats.combat;
 //        compareStats(s1Stat, s2Stat);
 //    }
+
 //    else if (challenge === "Intelligence"){
 //        var s1Stat = superHero1.results.powerstats.intelligence;
 //        var s2Stat = superHero2.results.powerstats.intelligence;
 //        compareStats(s1Stat, s2Stat);
-
 //    }
-//});
+});
 
 //console.log(compareStats())
 
@@ -83,4 +103,4 @@ $("#button-addon1").on("click", function () {
 //    else if (s1Stat === s2Stat) {
 //       return winner = draw
 //    }
-//}//
+//}

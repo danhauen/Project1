@@ -29,18 +29,18 @@
             <!--left side challenger input button-->
             <div class="col-3 input-group m-4 pr-4">
                 <div class="input-group-prepend">
-                    <button class="btn btn-danger" type="button" id="button-addon1">Submit</button>
+                    <button class="btn btn-danger" type="button" id="button-addon0">Submit</button>
                 </div>
-                <input type="text" class="form-control" placeholder="Challenger" id="userInputLeft"
-                aria-label="Example text with button addon" aria-describedby="button-addon1">
+                <input type="text" class="form-control" placeholder="Challenger" id="userInput0"
+                aria-label="Example text with button addon" aria-describedby="button-addon0">
             </div>
             
             <!--right side challenger input button-->
             <div class="col-3 input-group m-4 pr-4">
-                <input type="text" class="form-control" placeholder="Challenger" aria-label="Recipient's username"
-                aria-describedby="button-addon2">
+                <input type="text" class="form-control" placeholder="Challenger" id="userInput1"
+                    aria-label="Recipient's username" aria-describedby="button-addon1">
                 <div class="input-group-append">
-                    <button class="btn btn-danger font-weight-light" type="button" id="button-addon2">Submit</button>
+                    <button class="btn btn-danger font-weight-light" type="button" id="button-addon1">Submit</button>
                 </div>
             </div>
         </div>
@@ -48,17 +48,17 @@
         <div class="row d-flex justify-content-around">
             <div class="col mb-4">
                 <div class="card border-dark" style="width: 18rem;">
-                    <img src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1207/ddgrigg120700025.jpg" class="card-img-top" alt="...">
+                    <img id="superImage0" src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1207/ddgrigg120700025.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <!--challenger2 api name-->
-                        <h5 class="card-title text-center mb-0">Challenger 1</h5>
+                        <h5 id="challenger0" class="card-title text-center mb-0">Challenger 1</h5>
                     </div>
                     <!--Retrives API on the following after submitting challenger-->
                     <ul class="list-group list-group-flush">
-                        <li id="name1" class="list-group-item">Full Name: </li>
-                        <li class="list-group-item">Place of Birth: </li>
-                        <li class="list-group-item">First Appearance: </li>
-                        <li class="list-group-item">Alignment: </li>
+                        <li id="name0" class="list-group-item">Full Name: </li>
+                        <li id="birthPlace0" class="list-group-item">Place of Birth: </li>
+                        <li id="alignment0" class="list-group-item">Alignment: </li>
+                        <li id="firstAppear0" class="list-group-item">First Appearance: </li>
                     </ul>
                     <!--wiki link for more info-->
                     <div class="card-body">
@@ -66,70 +66,56 @@
                     </div>
                 </div>
             </div>
-            <!--card row for img/stats and challenge card-->
-            <div class="row d-flex justify-content-around">
-                <div class="col mb-4">
-                    <div class="card border-dark" style="width: 18rem;">
-                            <img id="superImage1" src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1207/ddgrigg120700025.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <!--challenger2 api name-->
-                                <h5 id="challenger1" class="card-title text-center mb-0">Challenger 1</h5>
-                            </div>
-                            <!--Retrives API on the following after submitting challenger-->
-                            <ul class="list-group list-group-flush">
-                                <li id="name1" class="list-group-item">Full Name: </li>
-                                <li id="birthPlace1" class="list-group-item">Place of Birth: </li>
-                                <li id="alignment1" class="list-group-item">Alignment: </li>
-                                <li id="firstAppear1" class="list-group-item">First Appearance: </li>
-                            </ul>
-                            <!--wiki link for more info-->
-                            <div class="card-body">
-                                <a href="#" class="card-link">More from Wiki-</a>
-                            </div>
+            <!--center card for choosing and executing challenge-->
+            <div class="col-5 text-center">
+                <div class="card border-dark">
+                    <div class="card-header col-12 bg-dark text-danger">Choose your Challenge!</div>
+                    <div class="col-12 challenge-list px-0">
+                        <div class="list-group list-group-flush" id="list-tab" role="tablist">
+                            <a class="list-group-item list-group-item-action px-0" id="list-home-list" data-toggle="list"
+                            href="#list-strength" role="tab" aria-controls="home">Strength</a>
+                            <a class="list-group-item list-group-item-action px-0" id="list-profile-list"
+                            data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Speed</a>
+                            <a class="list-group-item list-group-item-action px-0" id="list-messages-list"
+                            data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">SuperPower</a>
+                            <a class="list-group-item list-group-item-action px-0" id="list-settings-list"
+                            data-toggle="list" href="#list-settings" role="tab"aria-controls="settings">Combat</a>
+                            <a class="list-group-item list-group-item-action px-0" id="list-settings-list"
+                            data-toggle="list" href="#list-settings" role="tab"aria-controls="settings">Intelligence</a>
                         </div>
                     </div>
                     <!--execute challenge button-->
                     <div class="card-footer col-12 bg-dark mt-0">
                         <input class="btn btn-danger btn-lg mx-auto" type="submit" value="Start Challenge!">
                     </div>
-                    <div class="col mb-4">
-                        <div class="card border-dark" style="width: 18rem;">
-                                <!--challenger2 img-->
-                                <img src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1311/ddgrigg131100004.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <!--challenger2 api name-->
-                                    <h5 class="card-title text-center mb-0">Challenger 2</h5>
-                                </div>
-                                <!--Retrives API on the following after submitting challenger-->
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Full Name: </li>
-                                    <li class="list-group-item">Place of Birth: </li>
-                                    <li class="list-group-item">Alignment: </li>
-                                    <li class="list-group-item">First Appearance: </li>
-                                </ul>
-                                <!--wiki link for more info-->
-                                <div class="card-body">
-                                    <a href="#" class="card-link">More from Wiki-</a>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <!--spinner to be executed on start btn with small timer delay to simulate calculating-->
+                <div class="spinner-border text-danger m-4" role="status">
+                    <span class="sr-only">Calculating results...</span>
+                </div>
+                <!--results box to appear after results-->
+                <div class="card mt-3">
+                    <h5 class="card-header bg-dark border-dark text-danger">Results</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">results box??? yes or no</h5>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
             <div class="col mb-4">
                 <div class="card border-dark" style="width: 18rem;">
                     <!--challenger2 img-->
-                    <img src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1311/ddgrigg131100004.jpg" class="card-img-top" alt="...">
+                    <img id="superImage1" src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1311/ddgrigg131100004.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <!--challenger2 api name-->
-                        <h5 class="card-title text-center mb-0">Challenger 2</h5>
+                        <h5 id="challenger1" class="card-title text-center mb-0">Challenger 2</h5>
                     </div>
                     <!--Retrives API on the following after submitting challenger-->
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Full Name: </li>
-                        <li class="list-group-item">Place of Birth: </li>
-                        <li class="list-group-item">First Appearance: </li>
-                        <li class="list-group-item">Alignment: </li>
+                        <li id="name1" class="list-group-item">Full Name: </li>
+                        <li id="birthPlace1" class="list-group-item">Place of Birth: </li>
+                        <li id="alignment1" class="list-group-item">Alignment: </li>
+                        <li id="firstAppear1" class="list-group-item">First Appearance: </li>
                     </ul>
                     <!--wiki link for more info-->
                     <div class="card-body">
@@ -139,7 +125,7 @@
             </div>
         </div>
     </div>
-        
+
     <div class="container-fluid bg-dark border-top border-danger">
         <div class="row footer-row">
             <div class="col-10-lg mx-auto">
