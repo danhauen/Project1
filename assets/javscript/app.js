@@ -58,212 +58,7 @@ $(".list-group-item-action").click( function challengeSelect (){
 
     console.log(challenge);
 
-    $("#btn-challenge").click( function challengeBtnClick (){
-        var heroSpd = heroes.statSpd
-        var heroStr = heroes.statStr
-        var heroInt = heroes.statInt
-        var heroPow = heroes.statPow
-        var heroCom = heroes.statCom
     
-        var heroChallenge = challengeSelect()
-    
-        function runChallenge (heroChallenge, heroSpd, heroStr, heroInt, heroPow, heroCom){
-    
-    
-    
-            if (heroChallenge === "Strength") {
-    
-                console.log("strength check hit");
-    
-                var strength = heroStr
-    
-                indexOfMax(strength);
-    
-                function indexOfMax(strength) {
-                    if (strength.length === 0) {
-                        return -1;
-                    }
-                
-                    var max = strength[0];
-                    var maxIndex = 0;
-                
-                    for (var i = 1; i < strength.length; i++) {
-                        if (strength[i] > max) {
-                            maxIndex = i;
-                            max = strength[i];
-                        }
-                    }
-                
-                    return maxIndex;
-                }
-    
-                if (maxIndex === 0){
-                    return 0
-                }
-                
-                else {
-                    return 1
-                }
-    
-    
-                
-    
-            }
-            else if (heroChallenge === "Speed") {
-    
-                console.log("speed check hit");
-                var speed = heroSpd;
-    
-                indexOfMax(speed);
-    
-                function indexOfMax(speed) {
-                    if (speed.length === 0) {
-                        return -1;
-                    }
-                
-                    var max = speed[0];
-                    var maxIndex = 0;
-                
-                    for (var i = 1; i < speed.length; i++) {
-                        if (speed[i] > max) {
-                            maxIndex = i;
-                            max = speed[i];
-                        }
-                    }
-                
-                    return maxIndex;
-                }
-    
-                if (maxIndex === 0){
-                    return 0;
-                }
-                
-                else {
-                    return 1;
-                }
-    
-                
-                
-    
-            }
-            else if (heroChallenge === "Intelligence") {
-                var intelligence = heroInt;
-    
-                console.log("int check hit");
-    
-                indexOfMax(intelligence);
-    
-                function indexOfMax(intelligence) {
-                    if (intelligence.length === 0) {
-                        return -1;
-                    }
-                
-                    var max = intelligence[0];
-                    var maxIndex = 0;
-                
-                    for (var i = 1; i < intelligence.length; i++) {
-                        if (intelligence[i] > max) {
-                            maxIndex = i;
-                            max = intelligence[i];
-                        }
-                    }
-                
-                    return maxIndex;
-                }
-    
-                
-                if (maxIndex === 0){
-                    return 0
-                }
-                
-                else {
-                    return 1
-                }
-    
-                
-                
-    
-            }
-            else if (heroChallenge === "Combat") {
-                var combat = heroCom;
-    
-                console.log("combat check hit");
-    
-                indexOfMax(combat)
-    
-                function indexOfMax(combat) {
-                    if (combat.length === 0) {
-                        return -1;
-                    }
-                
-                    var max = combat[0];
-                    var maxIndex = 0;
-                
-                    for (var i = 1; i < combat.length; i++) {
-                        if (combat[i] > max) {
-                            maxIndex = i;
-                            max = combat[i];
-                        }
-                    }
-                
-                    return maxIndex;
-                }
-    
-                if (maxIndex === 0){
-                    return 0
-                }
-                
-                else {
-                    return 1
-                }
-    
-                
-            }
-            else if (heroChallenge === "Superpower") {
-                var superpower = heroPow;
-    
-                console.log("pow check hit");
-    
-                indexOfMax(superpower);
-    
-                function indexOfMax(superpower) {
-                    if (superpower.length === 0) {
-                        return -1;
-                    }
-                
-                    var max = superpower[0];
-                    var maxIndex = 0;
-                
-                    for (var i = 1; i < superpower.length; i++) {
-                        if (superpower[i] > max) {
-                            maxIndex = i;
-                            max = superpower[i];
-                        }
-                    }
-                
-                    return maxIndex;
-                }
-    
-                if (maxIndex === 0){
-                    return 0
-                }
-                
-                else {
-                    return 1
-                }
-    
-                
-                
-    
-            }
-            
-                
-    
-            }
-            runChallenge(heroChallenge, heroSpd, heroStr, heroInt, heroPow, heroCom);
-            console.log(runChallenge());
-    
-        });
 
 
 });
@@ -271,7 +66,212 @@ $(".list-group-item-action").click( function challengeSelect (){
 
 
 
+$("#btn-challenge").click( function challengeBtnClick (){
+    var heroSpd = heroes.statSpd
+    var heroStr = heroes.statStr
+    var heroInt = heroes.statInt
+    var heroPow = heroes.statPow
+    var heroCom = heroes.statCom
 
+    var heroChallenge = challengeSelect()
+
+    function runChallenge (heroChallenge, heroSpd, heroStr, heroInt, heroPow, heroCom){
+
+
+
+        if (heroChallenge === "Strength") {
+
+            console.log("strength check hit");
+
+            var strength = heroStr
+
+            indexOfMax(strength);
+
+            function indexOfMax(strength) {
+                if (strength.length === 0) {
+                    return -1;
+                }
+            
+                var max = strength[0];
+                var maxIndex = 0;
+            
+                for (var i = 1; i < strength.length; i++) {
+                    if (strength[i] > max) {
+                        maxIndex = i;
+                        max = strength[i];
+                    }
+                }
+            
+                return maxIndex;
+            }
+
+            if (maxIndex === 0){
+                return 0
+            }
+            
+            else {
+                return 1
+            }
+
+
+            
+
+        }
+        else if (heroChallenge === "Speed") {
+
+            console.log("speed check hit");
+            var speed = heroSpd;
+
+            indexOfMax(speed);
+
+            function indexOfMax(speed) {
+                if (speed.length === 0) {
+                    return -1;
+                }
+            
+                var max = speed[0];
+                var maxIndex = 0;
+            
+                for (var i = 1; i < speed.length; i++) {
+                    if (speed[i] > max) {
+                        maxIndex = i;
+                        max = speed[i];
+                    }
+                }
+            
+                return maxIndex;
+            }
+
+            if (maxIndex === 0){
+                return 0;
+            }
+            
+            else {
+                return 1;
+            }
+
+            
+            
+
+        }
+        else if (heroChallenge === "Intelligence") {
+            var intelligence = heroInt;
+
+            console.log("int check hit");
+
+            indexOfMax(intelligence);
+
+            function indexOfMax(intelligence) {
+                if (intelligence.length === 0) {
+                    return -1;
+                }
+            
+                var max = intelligence[0];
+                var maxIndex = 0;
+            
+                for (var i = 1; i < intelligence.length; i++) {
+                    if (intelligence[i] > max) {
+                        maxIndex = i;
+                        max = intelligence[i];
+                    }
+                }
+            
+                return maxIndex;
+            }
+
+            
+            if (maxIndex === 0){
+                return 0
+            }
+            
+            else {
+                return 1
+            }
+
+            
+            
+
+        }
+        else if (heroChallenge === "Combat") {
+            var combat = heroCom;
+
+            console.log("combat check hit");
+
+            indexOfMax(combat)
+
+            function indexOfMax(combat) {
+                if (combat.length === 0) {
+                    return -1;
+                }
+            
+                var max = combat[0];
+                var maxIndex = 0;
+            
+                for (var i = 1; i < combat.length; i++) {
+                    if (combat[i] > max) {
+                        maxIndex = i;
+                        max = combat[i];
+                    }
+                }
+            
+                return maxIndex;
+            }
+
+            if (maxIndex === 0){
+                return 0
+            }
+            
+            else {
+                return 1
+            }
+
+            
+        }
+        else if (heroChallenge === "Superpower") {
+            var superpower = heroPow;
+
+            console.log("pow check hit");
+
+            indexOfMax(superpower);
+
+            function indexOfMax(superpower) {
+                if (superpower.length === 0) {
+                    return -1;
+                }
+            
+                var max = superpower[0];
+                var maxIndex = 0;
+            
+                for (var i = 1; i < superpower.length; i++) {
+                    if (superpower[i] > max) {
+                        maxIndex = i;
+                        max = superpower[i];
+                    }
+                }
+            
+                return maxIndex;
+            }
+
+            if (maxIndex === 0){
+                return 0
+            }
+            
+            else {
+                return 1
+            }
+
+            
+            
+
+        }
+        
+            
+
+        }
+        runChallenge(heroChallenge, heroSpd, heroStr, heroInt, heroPow, heroCom);
+        console.log(runChallenge());
+
+    });
     
     
 
