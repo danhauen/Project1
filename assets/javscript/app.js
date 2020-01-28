@@ -1,3 +1,14 @@
+$(document).ready(function() { 
+    $('a').click(function() { 
+        $('a.list-group-item.active').removeClass("active"); 
+        $(this).addClass("active"); 
+    }); 
+}); 
+
+
+
+
+
 var responseIndex = -1;
 var heroes = {
     superName: ["",""],
