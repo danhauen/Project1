@@ -119,3 +119,23 @@ $(".list-group-item-action").click( function (){
 //     });
 // });
 
+$("#loveBtn").on("click", function (){
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://love-calculator.p.rapidapi.com/getPercentage?fname=" + heroes.nameResults[0] + "&sname=" + heroes.nameResults[1],
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "love-calculator.p.rapidapi.com",
+            "x-rapidapi-key": "3f9f7ab524mshc74e5464c9697a2p1272d5jsne563dc01a6df"
+        }
+    }
+    
+    $.ajax(settings).done(function (response) {
+        console.log(response.percentage);
+        $(".card-text").append("Percentage of combatibility: " + response.percentage + "%");
+        console.log(settings.url);
+        $(".card-text2").append(response.result);
+    });
+
+});
