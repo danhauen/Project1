@@ -29,19 +29,18 @@
     font-size: 15px;
 }
 
-.list-group-item:hover, .list-group-item.active {
+.challenge-list:hover , .challenge-list.active {
     background: #dc3545;
     color: ghostwhite;
     box-shadow: none;
  }
 
- .zoom {
-    transition: transform .2s;
-    margin: 0 auto;
-  }
+.footer {
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+    height: 30px;
 
- .zoom:hover {
-    -ms-transform: scale(1.1); /* IE 9 */
-    -webkit-transform: scale(1.1); /* Safari 3-8 */
-    transform: scale(1.1); 
-  }
+ }
+
+ 
