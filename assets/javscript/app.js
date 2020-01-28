@@ -6,6 +6,12 @@ $(document).ready(function() {
 }); 
 
 
+$theme-colors: (
+    "primary": #0074d9,
+    "danger": #ff4136
+  );
+   
+
 
 
 
