@@ -26,13 +26,13 @@ $("button").on("click", function() {
     responseIndex = parseInt($(this).attr("id").slice(-1));
     var superHero = $("#userInput" + responseIndex).val().trim();
 
-    var queryURL = "https://superheroapi.com/api/10213837355721301/search/" + superHero;
+    var queryURL = "https://cors-anywhere.herokuapp.com/superheroapi.com/api/10213837355721301/search/" + superHero;
 
-    $.ajaxPrefilter(function(options) {
-        if (options.crossDomain && jQuery.support.cors) {
-            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-        }
-    });
+    // $.ajaxPrefilter(function(options) {
+    //     if (options.crossDomain && jQuery.support.cors) {
+    //         options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+    //     }
+    // });
 
     $.get(queryURL, function(response) {
         heroes.superName[responseIndex] = response.results[0].name;
@@ -123,19 +123,21 @@ $("#loveBtn").on("click", function (){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://love-calculator.p.rapidapi.com/getPercentage?fname=" + heroes.nameResults[0] + "&sname=" + heroes.nameResults[1],
+        "url": "https://love-calculator.p.rapidapi.com/getPercentage?fname=" + heroes.nameResults[0].split(" ").join("+") + "&sname=" + heroes.nameResults[1].split(" ").join("+"),
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "love-calculator.p.rapidapi.com",
-            "x-rapidapi-key": "3f9f7ab524mshc74e5464c9697a2p1272d5jsne563dc01a6df"
+            "x-rapidapi-key": "1d09547cd7msh4a347c795eaf60bp18ec31jsn7453d2f1be9c"
         }
     }
     
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).then(function (response) {
         console.log(response.percentage);
-        $(".card-text").append("Percentage of combatibility: " + response.percentage + "%");
+        $(".card-text").html("Percentage of combatibility: " + response.percentage + "%");
+        $(".card-text2").html(response.result);
+    }).catch(function(error){
+        console.log(error);
         console.log(settings.url);
-        $(".card-text2").append(response.result);
-    });
+    })
 
 });
