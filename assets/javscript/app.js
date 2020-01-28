@@ -24,8 +24,8 @@ var heroes = {
 
 $("button").on("click", function() {
     responseIndex = parseInt($(this).attr("id").slice(-1));
-
     var superHero = $("#userInput" + responseIndex).val().trim();
+
     var queryURL = "https://superheroapi.com/api/10213837355721301/search/" + superHero;
 
     $.ajaxPrefilter(function(options) {
@@ -104,3 +104,18 @@ $(".list-group-item-action").click( function (){
 //       return winner = draw
 //    }
 //}
+
+// $("button").on("click", function() {
+
+//     var queryURL = "api.php?action=opensearch&search=" + heroes.superName[0];
+
+//     $.ajaxPrefilter(function(options) {
+//         if (options.crossDomain && jQuery.support.cors) {
+//             options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+//         }
+//     });
+//     $.get(queryURL, function(response) {
+//         $("#moreWiki1").text(response);
+//     });
+// });
+
