@@ -1,3 +1,5 @@
+
+
 var queryURL = "https://superheroapi.com/api.php/10213837355721301/search/batman";
 
 $.ajaxPrefilter(function(options) {
