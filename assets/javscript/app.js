@@ -57,50 +57,227 @@ $(".list-group-item-action").click( function (){
     var challenge = $(this).html();
     console.log(challenge);
 
-//   if (challenge === "Strength") {
-//        var s1Stat = superHero1.results.powerstats.strength;
-//        var s2Stat = superHero2.results.powerstats.strength;
-//        compareStats(s1Stat, s2Stat);
-//    }
-//
-//    else if (challenge === "Speed"){
-//        var s1Stat = superHero1.results.powerstats.speed;
-//        var s2Stat = superHero2.results.powerstats.speed;
-//        compareStats(s1Stat, s2Stat);
-//    }
-//
-//    else if (challenge === "Superpower"){
-//        var s1Stat = superHero1.results.powerstats.superpower;
-//        var s2Stat = superHero2.results.powerstats.superpower;
-//        compareStats(s1Stat, s2Stat);
-//    }
-//
-//    else if (challenge === "Combat"){
-//        var s1Stat = superHero1.results.powerstats.combat;
-//        var s2Stat = superHero2.results.powerstats.combat;
-//        compareStats(s1Stat, s2Stat);
-//    }
+//handle scenario where challenge button is clicked before there are 2 challengers
 
-//    else if (challenge === "Intelligence"){
-//        var s1Stat = superHero1.results.powerstats.intelligence;
-//        var s2Stat = superHero2.results.powerstats.intelligence;
-//        compareStats(s1Stat, s2Stat);
-//    }
+//define win conditions for challenges
+
+
+$("#btn-challenge").click( function (){
+
+    function runChallenge (heroes, challenge){
+
+        console.log(heroes)
+        console.log(challenge)
+
+        if (challenge === "Strength") {
+
+            console.log("strength check hit");
+
+            var strength = heroes.statStr;
+
+            indexOfMax(strength);
+
+            function indexOfMax(strength) {
+                if (strength.length === 0) {
+                    return -1;
+                }
+            
+                var max = strength[0];
+                var maxIndex = 0;
+            
+                for (var i = 1; i < strength.length; i++) {
+                    if (strength[i] > max) {
+                        maxIndex = i;
+                        max = strength[i];
+                    }
+                }
+            
+                return maxIndex;
+            }
+
+            if (maxIndex === 0){
+                return 0
+            }
+            
+            else {
+                return 1
+            }
+
+
+            
+
+        }
+        else if (challenge === "Speed") {
+
+            console.log("speed check hit");
+            var speed = heroes.statSpd;
+
+            indexOfMax(speed);
+
+            function indexOfMax(speed) {
+                if (speed.length === 0) {
+                    return -1;
+                }
+            
+                var max = speed[0];
+                var maxIndex = 0;
+            
+                for (var i = 1; i < speed.length; i++) {
+                    if (speed[i] > max) {
+                        maxIndex = i;
+                        max = speed[i];
+                    }
+                }
+            
+                return maxIndex;
+            }
+
+            if (maxIndex === 0){
+                return 0;
+            }
+            
+            else {
+                return 1;
+            }
+
+            
+            
+
+        }
+        else if (challenge === "Intelligence") {
+            var intelligence = heroes.statInt;
+
+            console.log("int check hit");
+
+            indexOfMax(intelligence);
+
+            function indexOfMax(intelligence) {
+                if (intelligence.length === 0) {
+                    return -1;
+                }
+            
+                var max = intelligence[0];
+                var maxIndex = 0;
+            
+                for (var i = 1; i < intelligence.length; i++) {
+                    if (intelligence[i] > max) {
+                        maxIndex = i;
+                        max = intelligence[i];
+                    }
+                }
+            
+                return maxIndex;
+            }
+
+            
+            if (maxIndex === 0){
+                return 0
+            }
+            
+            else {
+                return 1
+            }
+
+            
+            
+
+        }
+        else if (challenge === "Combat") {
+            var combat = heroes.statCom
+
+            console.log("combat check hit");
+
+            indexOfMax(combat)
+
+            function indexOfMax(combat) {
+                if (combat.length === 0) {
+                    return -1;
+                }
+            
+                var max = combat[0];
+                var maxIndex = 0;
+            
+                for (var i = 1; i < combat.length; i++) {
+                    if (combat[i] > max) {
+                        maxIndex = i;
+                        max = combat[i];
+                    }
+                }
+            
+                return maxIndex;
+            }
+
+            if (maxIndex === 0){
+                return 0
+            }
+            
+            else {
+                return 1
+            }
+
+            
+        }
+        else if (challenge === "Superpower") {
+            var superpower = heroes.statPow
+
+            console.log("pow check hit");
+
+            indexOfMax(superpower);
+
+            function indexOfMax(superpower) {
+                if (superpower.length === 0) {
+                    return -1;
+                }
+            
+                var max = superpower[0];
+                var maxIndex = 0;
+            
+                for (var i = 1; i < superpower.length; i++) {
+                    if (superpower[i] > max) {
+                        maxIndex = i;
+                        max = superpower[i];
+                    }
+                }
+            
+                return maxIndex;
+            }
+
+            if (maxIndex === 0){
+                return 0
+            }
+            
+            else {
+                return 1
+            }
+
+            
+            
+
+        }
+        
+            
+
+        }
+        runChallenge(heroes);
+        console.log(runChallenge());
+
+    });
+    
+
+
+
+
 });
 
-//console.log(compareStats())
 
 
-//function compareStats() {
-//    if (s1Stat > s2Stat) {
-//        return winner = superHero1
-//    }
-//
-//    else if (s1Stat < s2Stat) {//
-//    return winner = superHero2
-//    }
-//
-//    else if (s1Stat === s2Stat) {
-//       return winner = draw
-//    }
-//}
+
+
+    
+
+
+
+
+
+
+
