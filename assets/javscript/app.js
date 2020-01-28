@@ -53,7 +53,7 @@ $("button").on("click", function() {
     });
 });
 
-$(".list-group-item-action").click( function (){
+$(".list-group-item-action").click( function challengeSelect (){
     var challenge = $(this).html();
     console.log(challenge);
 
@@ -62,18 +62,29 @@ $(".list-group-item-action").click( function (){
 //define win conditions for challenges
 
 
-$("#btn-challenge").click( function (){
+});
 
-    function runChallenge (heroes, challenge){
 
-        console.log(heroes)
-        console.log(challenge)
 
-        if (challenge === "Strength") {
+
+$("#btn-challenge").click( function challengeBtnClick (){
+    var heroSpd = heroes.statSpd
+    var heroStr = heroes.statStr
+    var heroInt = heroes.statInt
+    var heroPow = heroes.statPow
+    var heroCom = heroes.statCom
+
+    var heroChallenge = challengeSelect()
+
+    function runChallenge (heroChallenge, heroSpd, heroStr, heroInt, heroPow, heroCom){
+
+
+
+        if (heroChallenge === "Strength") {
 
             console.log("strength check hit");
 
-            var strength = heroes.statStr;
+            var strength = heroStr
 
             indexOfMax(strength);
 
@@ -107,10 +118,10 @@ $("#btn-challenge").click( function (){
             
 
         }
-        else if (challenge === "Speed") {
+        else if (heroChallenge === "Speed") {
 
             console.log("speed check hit");
-            var speed = heroes.statSpd;
+            var speed = heroSpd;
 
             indexOfMax(speed);
 
@@ -144,8 +155,8 @@ $("#btn-challenge").click( function (){
             
 
         }
-        else if (challenge === "Intelligence") {
-            var intelligence = heroes.statInt;
+        else if (heroChallenge === "Intelligence") {
+            var intelligence = heroInt;
 
             console.log("int check hit");
 
@@ -182,8 +193,8 @@ $("#btn-challenge").click( function (){
             
 
         }
-        else if (challenge === "Combat") {
-            var combat = heroes.statCom
+        else if (heroChallenge === "Combat") {
+            var combat = heroCom;
 
             console.log("combat check hit");
 
@@ -217,8 +228,8 @@ $("#btn-challenge").click( function (){
 
             
         }
-        else if (challenge === "Superpower") {
-            var superpower = heroes.statPow
+        else if (heroChallenge === "Superpower") {
+            var superpower = heroPow;
 
             console.log("pow check hit");
 
@@ -263,16 +274,6 @@ $("#btn-challenge").click( function (){
 
     });
     
-
-
-
-
-});
-
-
-
-
-
     
 
 
