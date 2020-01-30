@@ -64,10 +64,10 @@ $(".list-group-item-action").click(function(){
 function compareStat(stats){
     stats = stats[0] - stats[1];
     if(stats > 0){
-        $(".left-hero").addClass("animated fadeOutLeftBig")
+        $(".hero-right").addClass("animated fadeOutRightBig")
     }
     else if(stats < 0){
-        $(".right-hero").addClass("animated fadeOutRightBig")
+        $(".hero-left").addClass("animated fadeOutLeftBig")
     }
     else{
         console.log("tie");
@@ -116,10 +116,16 @@ $("#loveBtn").on("click", function (){
     
     $.ajax(settings).then(function (response) {
         console.log(response.percentage);
-        $(".card-text").html(response.percentage + "% combatibility");
+        $(".card-text").html("Percentage of combatibility: " + response.percentage + "%");
         $(".card-text2").html(response.result);
     }).catch(function(error){
         console.log(error);
         console.log(settings.url);
     })
+
+    $(".challenge-select").addClass("animated fadeOutUpBig")
+});
+
+$("#loveBtnReload").on("click", function (){
+    location.reload(true);
 });
