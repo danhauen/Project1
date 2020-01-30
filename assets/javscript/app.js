@@ -1,3 +1,8 @@
+$( document ).ready(function() {
+    $("#loveBtnReload").hide();
+    $("#btn-newchallenge").hide();
+
+
 var responseIndex = -1;
 var heroes = {
     superName: ["",""],
@@ -75,6 +80,8 @@ function compareStat(stats){
 };
 
 $("#btn-challenge").click(function(){
+    $("#btn-challenge").hide();
+    $("#btn-newchallenge").show();
     switch(challenge){
         case -1:
             break;
@@ -103,6 +110,7 @@ $("#btn-newchallenge").click( function (){
 $("#loveBtn").on("click", function (){
     $("h6").hide();
     $("#loveBtn").hide();
+    // $("#loveBtnReload").show();
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -112,6 +120,7 @@ $("#loveBtn").on("click", function (){
             "x-rapidapi-host": "love-calculator.p.rapidapi.com",
             "x-rapidapi-key": "1d09547cd7msh4a347c795eaf60bp18ec31jsn7453d2f1be9c"
         }
+        
     }
     
     $.ajax(settings).then(function (response) {
@@ -128,4 +137,5 @@ $("#loveBtn").on("click", function (){
 
 $("#loveBtnReload").on("click", function (){
     location.reload(true);
+});
 });
