@@ -111,8 +111,8 @@ $("#loveBtn").on("click", function (){
         "headers": {
             "x-rapidapi-host": "love-calculator.p.rapidapi.com",
             "x-rapidapi-key": "1d09547cd7msh4a347c795eaf60bp18ec31jsn7453d2f1be9c"
-        }
-    }
+        },
+    };
     
     $.ajax(settings).then(function (response) {
         console.log(response.percentage);
@@ -121,5 +121,5 @@ $("#loveBtn").on("click", function (){
     }).catch(function(error){
         console.log(error);
         console.log(settings.url);
-    })
+    });
 });
