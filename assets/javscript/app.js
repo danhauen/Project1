@@ -26,15 +26,15 @@ var heroes = {
 
 $("button").on("click", function() {
     responseIndex = parseInt($(this).attr("id").slice(-1));
-
     var superHero = $("#userInput" + responseIndex).val().trim();
-    var queryURL = "https://superheroapi.com/api/10213837355721301/search/" + superHero;
 
-    $.ajaxPrefilter(function(options) {
-        if (options.crossDomain && jQuery.support.cors) {
-            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-        }
-    });
+    var queryURL = "https://cors-anywhere.herokuapp.com/superheroapi.com/api/10213837355721301/search/" + superHero;
+
+    // $.ajaxPrefilter(function(options) {
+    //     if (options.crossDomain && jQuery.support.cors) {
+    //         options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+    //     }
+    // });
 
     $.get(queryURL, function(response) {
         heroes.superName[responseIndex] = response.results[0].name;
@@ -59,9 +59,11 @@ var challengeList = ["Strength","Speed","SuperPower","Combat","Intelligence"]
 var challenge = -1;
 $(".list-group-item-action").click(function(){
     challenge = challengeList.indexOf($(this).html());
+    console.log(challenge);
 });
 
 function compareStat(stats){
+    console.log("made it");
     stats = stats[0] - stats[1];
     if(stats > 0){
         $("#results").text(heroes.superName[0] + " wins!");
@@ -75,6 +77,7 @@ function compareStat(stats){
 };
 
 $("#btn-challenge").click(function(){
+    console.log("click");
     switch(challenge){
         case -1:
             break;
@@ -94,4 +97,38 @@ $("#btn-challenge").click(function(){
             compareStat(heroes.statInt);
             break;
     }
+});
+
+    //$(".left-hero").addClass("animated fadeOutLeftBig")
+    //$(".right-hero").addClass("animated fadeOutRightBig")
+    
+
+//$("#btn-newchallenge").click( function (){
+//    location.reload(true);
+//})
+        
+
+
+$("#loveBtn").on("click", function (){
+    $("h6").hide();
+    $("#loveBtn").hide();
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://love-calculator.p.rapidapi.com/getPercentage?fname=" + heroes.nameResults[0].split(" ").join("+") + "&sname=" + heroes.nameResults[1].split(" ").join("+"),
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "love-calculator.p.rapidapi.com",
+            "x-rapidapi-key": "1d09547cd7msh4a347c795eaf60bp18ec31jsn7453d2f1be9c"
+        }
+    }
+    
+    $.ajax(settings).then(function (response) {
+        console.log(response.percentage);
+        $(".card-text").html(response.percentage + "% combatibility");
+        $(".card-text2").html(response.result);
+    }).catch(function(error){
+        console.log(error);
+        console.log(settings.url);
+    })
 });
