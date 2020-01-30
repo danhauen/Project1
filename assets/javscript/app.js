@@ -55,10 +55,49 @@ $("button").on("click", function() {
     });
 });
 
+<<<<<<< HEAD
 var challengeList = ["Strength","Speed","SuperPower","Combat","Intelligence"]
 var challenge = -1;
 $(".list-group-item-action").click(function(){
     challenge = challengeList.indexOf($(this).html());
+=======
+var challenge = "";
+
+$(".list-group-item-action").click( function (){
+    return challenge = $(this).html();
+
+});
+
+console.log(challenge)
+
+
+
+$("#btn-challenge").click( function (){
+
+    
+
+    //var heroSpd = heroes.statSpd;
+    //var heroStr = heroes.statStr;
+    //var heroInt = heroes.statInt;
+    //var heroPow = heroes.statPow;
+    //var heroCom = heroes.statCom;
+
+    //var heroChallenge = challenge;
+
+    //runChallenge(heroChallenge, heroSpd, heroStr, heroInt, heroPow,// heroCom);
+    
+    //console.log(runChallenge());
+
+    //select the losing hero and fade out, using zero card as placeholder. we'll add a function to select the proper losing hero after the challenge function is up and running.
+
+    $(".hero-left").addClass("animated fadeOutLeftBig")
+    $(".hero-right").addClass("animated fadeOutRightBig")
+    
+
+
+    
+
+>>>>>>> 03cde020a8765adad4b3b58dd4f97aa7567256e5
 });
 
 function compareStat(stats){
