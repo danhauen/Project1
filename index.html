@@ -1,4 +1,4 @@
-`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-us">
 <!-- <html> -->
 
@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Superhero Battle</title>
     <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
@@ -25,34 +26,38 @@
         </div>
     </div>
     <!--container for challenger cards and challenge scroll-->
-    <div class="container">
+    <div class="container-sm clearfix">
         <!--challenge input row-->
-        <div class="row input-row d-flex justify-content-between">
-
+        <div class="row input-row justify-content-between mx-auto">
             <!--left side challenger input button-->
-            <div class="col-3 input-group m-4 pr-4 left-hero">
+            <div class="col-3 col-10-sm input-group m-4 pl-4">
                 <div class="input-group-prepend">
                     <button class="btn btn-danger" type="button" id="button-addon0">Submit</button>
                 </div>
                 <input type="text" class="form-control" placeholder="Challenger" id="userInput0"
-                aria-label="Example text with button addon" aria-describedby="button-addon0">
+                    aria-label="Example text with button addon" aria-describedby="button-addon0">
             </div>
-            
+            <!--spinner to be executed on start btn with small timer delay to simulate calculating-->
+            <div class="spinner-border text-danger m-4" role="status">
+                <span class="sr-only">Calculating results...</span>
+            </div>
             <!--right side challenger input button-->
-            <div class="col-3 input-group m-4 pr-4 right-hero">
-                <input type="text" class="form-control" placeholder="Challenger" id="userInput1"
-                    aria-label="Recipient's username" aria-describedby="button-addon1">
-                <div class="input-group-append">
-                    <button class="btn btn-danger font-weight-light" type="button" id="button-addon1">Submit</button>
+            <div class="col-3 col-10-sm input-group m-4 pr-4">
+                <div class="input-group-prepend">
+                    <button class="btn btn-danger" type="button" id="button-addon1">Submit</button>
                 </div>
+                <input type="text" class="form-control" placeholder="Challenger" id="userInput1"
+                    aria-label="Example text with button addon" aria-describedby="button-addon1">
             </div>
         </div>
 
-        <!--card row for img/stats and challenge card-->
-        <div class="row d-flex justify-content-around">
-            <div class="col mb-4 left-hero">
+        <div class="container">
+            <!--card row for img/stats and challenge card-->
+            <div class="row d-flex justify-content-around">
                 <div class="card border-dark" style="width: 18rem;">
-                    <img id="superImage0" src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1207/ddgrigg120700025.jpg" class="card-img-top" alt="...">
+                    <img id="superImage0"
+                        src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1207/ddgrigg120700025.jpg"
+                        class="card-img-top" alt="...">
                     <div class="card-body">
                         <!--challenger2 api name-->
                         <h5 id="challenger0" class="card-title text-center mb-0">Challenger 1</h5>
@@ -65,53 +70,53 @@
                         <li id="firstAppear0" class="list-group-item">First Appearance: </li>
                     </ul>
                 </div>
-            </div>
-            <!--center card for choosing and executing challenge-->
-            <div class="col-5 text-center">
-                <div class="card border-dark">
-                    <div class="card-header col-12 bg-dark text-danger">Choose your Challenge!</div>
-                    <div class="col-12 challenge-list px-0">
-                        <div class="list-group list-group-flush" id="list-tab" role="tablist">
-                            <a class="list-group-item list-group-item-action px-0" id="list-home-list" data-toggle="list"
-                            href="#list-strength" role="tab" aria-controls="home">Strength</a>
-                            <a class="list-group-item list-group-item-action px-0" id="list-profile-list"
-                            data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Speed</a>
-                            <a class="list-group-item list-group-item-action px-0" id="list-messages-list"
-                            data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">SuperPower</a>
-                            <a class="list-group-item list-group-item-action px-0" id="list-settings-list"
-                            data-toggle="list" href="#list-settings" role="tab"aria-controls="settings">Combat</a>
-                            <a class="list-group-item list-group-item-action px-0" id="list-settings-list"
-                            data-toggle="list" href="#list-settings" role="tab"aria-controls="settings">Intelligence</a>
+                <!--center card for choosing and executing challenge-->
+                <div class="col-4 text-center">
+                    <div class="card border-dark">
+                        <div class="card-header col-12 bg-dark text-danger">Choose your Challenge!</div>
+                        <div class="col-12 challenge-list px-0">
+                            <div class="list-group list-group-flush" id="list-tab" role="tablist">
+                                <a class="list-group-item list-group-item-action challenge-list px-0"
+                                    id="list-home-list" data-toggle="list" href="#list-strength" role="tab"
+                                    aria-controls="home">Strength</a>
+                                <a class="list-group-item list-group-item-action challenge-list px-0"
+                                    id="list-profile-list" data-toggle="list" href="#list-profile" role="tab"
+                                    aria-controls="profile">Speed</a>
+                                <a class="list-group-item list-group-item-action challenge-list px-0"
+                                    id="list-messages-list" data-toggle="list" href="#list-messages" role="tab"
+                                    aria-controls="messages">SuperPower</a>
+                                <a class="list-group-item list-group-item-action challenge-list px-0"
+                                    id="list-settings-list" data-toggle="list" href="#list-settings" role="tab"
+                                    aria-controls="settings">Combat</a>
+                                <a class="list-group-item list-group-item-action challenge-list px-0"
+                                    id="list-settings-list" data-toggle="list" href="#list-settings" role="tab"
+                                    aria-controls="settings">Intelligence</a>
+                            </div>
+                        </div>
+                        <!--challenge footer execute challenge button-->
+                        <div class="card-footer bg-dark">
+                            <input class="btn btn-danger btn-lg mx-auto" type="submit" value="Start Challenge!">
                         </div>
                     </div>
-                    <!--execute challenge button-->
-                    <div class="card-footer col-12 bg-dark mt-0">
-                        <input class="btn btn-danger btn-lg mx-auto" id= "btn-challenge" type="submit" value="Start Challenge!">
-                        <input class="btn btn-danger btn-lg mx-auto" id= "btn-newchallenge" type="submit" value="Try another challenge?">
-                        
+                    <!--compatability results-->
+                    <div class="card compat-card border-dark my-3">
+                        <h5 class="card-header bg-dark text-danger">Enough of all this fighting!</h5>
+                        <div class="card-body">
+                            <p class="card-title compat-card-title">Let's see how compatible these two challengers
+                                are...</p>
+                            <input id="loveBtn" class="btn btn-danger btn-lg mx-auto" value="Click here for love">
+                            <p class="card-text"></p>
+                            <p class="card-text2"></p>
+                        </div>
                     </div>
                 </div>
-                <!--spinner to be executed on start btn with small timer delay to simulate calculating-->
-                <div class="spinner-border text-danger m-4" role="status">
-                    <span class="sr-only">Calculating results...</span>
-                </div>
-                
-                <!--results box to appear after results-->
-                <div class="card mt-3">
-                    <h5 class="card-header bg-dark border-dark text-danger">Enough of all this fighting!</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">Let's see how compatible these two challengers are...</h5>
-                        <input id="loveBtn" class="btn btn-danger btn-lg mx-auto" value="Click here for love">
-                        <p class="card-text"></p>
-                        <br>
-                        <p class ="card-text2"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-4 right-hero">
+              
+                <!-- challenger 2 -->
                 <div class="card border-dark" style="width: 18rem;">
                     <!--challenger2 img-->
-                    <img id="superImage1" src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1311/ddgrigg131100004.jpg" class="card-img-top" alt="...">
+                    <img id="superImage1"
+                        src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1311/ddgrigg131100004.jpg"
+                        class="card-img-top" alt="...">
                     <div class="card-body">
                         <!--challenger2 api name-->
                         <h5 id="challenger1" class="card-title text-center mb-0">Challenger 2</h5>
@@ -127,8 +132,7 @@
             </div>
         </div>
     </div>
-
-    <div class="container-fluid bg-dark border-top border-danger">
+    <div class="container-fluid footer bg-dark border-top border-danger">
         <div class="row footer-row">
             <div class="col-10-lg mx-auto">
                 <p class="text-danger">Copyright&copy;</p>
@@ -140,4 +144,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
     <script src="assets/javscript/app.js"></script>
 </body>
+
 </html>

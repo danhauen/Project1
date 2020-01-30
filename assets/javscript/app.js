@@ -203,6 +203,8 @@ function runChallenge (heroChallenge, heroSpd, heroStr, heroInt, heroPow, heroCo
 // });
 
 $("#loveBtn").on("click", function (){
+    $("h6").hide();
+    $("#loveBtn").hide();
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -216,7 +218,7 @@ $("#loveBtn").on("click", function (){
     
     $.ajax(settings).then(function (response) {
         console.log(response.percentage);
-        $(".card-text").html("Percentage of combatibility: " + response.percentage + "%");
+        $(".card-text").html(response.percentage + "% combatibility");
         $(".card-text2").html(response.result);
     }).catch(function(error){
         console.log(error);
