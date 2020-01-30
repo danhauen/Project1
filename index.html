@@ -8,9 +8,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Superhero Battle</title>
     <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    
 </head>
 
 <body>
@@ -18,30 +21,33 @@
     <div class="container-fluid bg-dark border-bottom border-danger">
         <div class="row header-row">
             <div class="col-10-lg mx-auto">
-                <h1 class="header text-danger">Superhero Battle Royal</h1>
+                <h1 class="header text-danger">Superhero Battle Royale</h1>
             </div>
         </div>
     </div>
     <!--container for challenger cards and challenge scroll-->
-    <div class="container">
+    <div class="container-sm clearfix">
         <!--challenge input row-->
-        <div class="row input-row d-flex justify-content-between">
+        <div class="row input-row justify-content-between mx-auto">
             <!--left side challenger input button-->
-            <div class="col-3 input-group m-4 pr-4">
+            <div class="col-3 col-10-sm input-group m-4 pl-4">
                 <div class="input-group-prepend">
                     <button class="btn btn-danger" type="button" id="button-addon0">Submit</button>
                 </div>
                 <input type="text" class="form-control" placeholder="Challenger" id="userInput0"
-                aria-label="Example text with button addon" aria-describedby="button-addon0">
+                    aria-label="Example text with button addon" aria-describedby="button-addon0">
             </div>
-            
+            <!--spinner to be executed on start btn with small timer delay to simulate calculating-->
+            <div class="spinner-border text-danger m-4" role="status">
+                <span class="sr-only">Calculating results...</span>
+            </div>
             <!--right side challenger input button-->
-            <div class="col-3 input-group m-4 pr-4">
-                <input type="text" class="form-control" placeholder="Challenger" id="userInput1"
-                    aria-label="Recipient's username" aria-describedby="button-addon1">
-                <div class="input-group-append">
-                    <button class="btn btn-danger font-weight-light" type="button" id="button-addon1">Submit</button>
+            <div class="col-3 col-10-sm input-group m-4 pr-4">
+                <div class="input-group-prepend">
+                    <button class="btn btn-danger" type="button" id="button-addon1">Submit</button>
                 </div>
+                <input type="text" class="form-control" placeholder="Challenger" id="userInput1"
+                    aria-label="Example text with button addon" aria-describedby="button-addon1">
             </div>
         </div>
 
@@ -63,10 +69,6 @@
                         <li id="alignment0" class="list-group-item">Alignment: </li>
                         <li id="firstAppear0" class="list-group-item">First Appearance: </li>
                     </ul>
-                    <!--wiki link for more info-->
-                    <div class="card-body">
-                        <a href="#" class="card-link">More from Wiki-</a>
-                    </div>
                 </div>
                 <!--center card for choosing and executing challenge-->
                 <div class="col-4 text-center">
@@ -97,21 +99,25 @@
                             <input class="btn btn-danger btn-md mx-auto" type="submit" value="New Challenge?" id="btn-newchallenge">
                         </div>
                     </div>
-                    <!--execute challenge button-->
-                    <div class="card-footer col-12 bg-dark mt-0">
-                        <input class="btn btn-danger btn-lg mx-auto" id= "btn-challenge" type="submit" value="Start Challenge!">
-                    </div>
-                    <div class="card mt-3">
-                        <h5 class="card-header bg-dark border-dark text-danger">Results</h5>
+                    <!--compatability results-->
+                    <div class="card compat-card border-dark my-3">
+                        <h5 class="card-header bg-dark text-danger">Enough of all this fighting!</h5>
                         <div class="card-body">
-                            <p class="card-text" id="results"></p>
+                            <p class="card-title compat-card-title">Let's see how compatible these two challengers
+                                are...</p>
+                            <input id="loveBtn" class="btn btn-danger btn-lg mx-auto" value="Click here for love">
+                            <p class="card-text"></p>
+                            <p class="card-text2"></p>
                         </div>
                     </div>
                 </div>
+              
                 <!-- challenger 2 -->
                 <div class="card border-dark hero-right" style="width: 18rem;">
                     <!--challenger2 img-->
-                    <img id="superImage1" src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1311/ddgrigg131100004.jpg" class="card-img-top" alt="...">
+                    <img id="superImage1"
+                        src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1311/ddgrigg131100004.jpg"
+                        class="card-img-top" alt="...">
                     <div class="card-body">
                         <!--challenger2 api name-->
                         <h5 id="challenger1" class="card-title text-center mb-0">Challenger 2</h5>
@@ -123,16 +129,11 @@
                         <li id="alignment1" class="list-group-item">Alignment: </li>
                         <li id="firstAppear1" class="list-group-item">First Appearance: </li>
                     </ul>
-                    <!--wiki link for more info-->
-                    <div class="card-body">
-                        <a href="#" class="card-link">More from Wiki-</a>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="container-fluid bg-dark border-top border-danger">
+    <div class="container-fluid footer bg-dark border-top border-danger">
         <div class="row footer-row">
             <div class="col-10-lg mx-auto">
                 <p class="text-danger">Copyright&copy;</p>
@@ -144,4 +145,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
     <script src="assets/javscript/app.js"></script>
 </body>
+
 </html>
