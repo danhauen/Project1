@@ -6,12 +6,14 @@ var heroes = {
     firstAppearResults: ["",""],
     alignment: ["",""],
     image: ["",""],
+
     statInt:[0,0],
     statStr:[0,0],
     statSpd:[0,0],
     statDur:[0,0],
     statPow:[0,0],
     statCom:[0,0],
+
     display: function(){
         $("#challenger" + responseIndex).text(this.superName[responseIndex]);
         $("#name" + responseIndex).text("Name: " + this.nameResults[responseIndex]);
@@ -41,6 +43,7 @@ $("button").on("click", function() {
         heroes.firstAppearResults[responseIndex] = response.results[0].biography["first-appearance"];
         heroes.alignment[responseIndex] = response.results[0].biography.alignment;
         heroes.image[responseIndex] = response.results[0].image.url;
+
         heroes.statInt[responseIndex] = parseInt(response.results[0].powerstats.intelligence);
         heroes.statStr[responseIndex] = parseInt(response.results[0].powerstats.strength);
         heroes.statSpd[responseIndex] = parseInt(response.results[0].powerstats.speed);
@@ -48,11 +51,16 @@ $("button").on("click", function() {
         heroes.statPow[responseIndex] = parseInt(response.results[0].powerstats.power);
         heroes.statCom[responseIndex] = parseInt(response.results[0].powerstats.combat);
         heroes.display();
-        console.log(heroes);
         responseIndex = -1;
     });
 });
 
+<<<<<<< HEAD
+var challengeList = ["Strength","Speed","SuperPower","Combat","Intelligence"]
+var challenge = -1;
+$(".list-group-item-action").click(function(){
+    challenge = challengeList.indexOf($(this).html());
+=======
 var challenge = "";
 
 $(".list-group-item-action").click( function (){
@@ -89,118 +97,53 @@ $("#btn-challenge").click( function (){
 
     
 
+>>>>>>> 03cde020a8765adad4b3b58dd4f97aa7567256e5
 });
 
-$("#btn-newchallenge").click( function (){
-    location.reload(true);
-
-})
-        
-        
-
-    
-    
-
-
-function runChallenge (heroChallenge, heroSpd, heroStr, heroInt, heroPow, heroCom){
-
-
-
-    if (heroChallenge === "Strength") {
-
-        console.log("strength check hit");
-
-        var strength = heroStr
-
-        indexOfMax(strength);
-
-        function indexOfMax(strength) {
-            if (strength.length === 0) {
-                return -1;
-            }
-        
-            var max = strength[0];
-            var maxIndex = 0;
-        
-            for (var i = 1; i < strength.length; i++) {
-                if (strength[i] > max) {
-                    maxIndex = i;
-                    max = strength[i];
-                }
-            }
-        
-            return maxIndex;
-        }
-
-        if (maxIndex === 0){
-            return 0
-        }
-        
-        else {
-            return 1
-        }
-
-
-        
-
+function compareStat(stats){
+    stats = stats[0] - stats[1];
+    if(stats > 0){
+        $("#results").text(heroes.superName[0] + " wins!");
     }
-    else if (heroChallenge === "Speed") {
-
-        console.log("speed check hit");
-        var speed = heroSpd;
-
-        indexOfMax(speed);
-
-        function indexOfMax(speed) {
-            if (speed.length === 0) {
-                return -1;
-            }
-        
-            var max = speed[0];
-            var maxIndex = 0;
-        
-            for (var i = 1; i < speed.length; i++) {
-                if (speed[i] > max) {
-                    maxIndex = i;
-                    max = speed[i];
-                }
-            }
-        
-            return maxIndex;
-        }
+    else if(stats < 0){
+        $("#results").text(heroes.superName[1] + " wins!");
     }
+    else{
+        $("#results").text("It's a tie.");
+    };
 };
 
-//console.log(compareStats())
+$("#btn-challenge").click(function(){
+    switch(challenge){
+        case -1:
+            break;
+        case 0:
+            compareStat(heroes.statStr);
+            break;
+        case 1:
+            compareStat(heroes.statSpd);
+            break;
+        case 2:
+            compareStat(heroes.statPow);
+            break;
+        case 3:
+            compareStat(heroes.statCom);
+            break;
+        case 4:
+            compareStat(heroes.statInt);
+            break;
+    }
+});
 
+    //$(".left-hero").addClass("animated fadeOutLeftBig")
+    //$(".right-hero").addClass("animated fadeOutRightBig")
+    
 
-//function compareStats() {
-//    if (s1Stat > s2Stat) {
-//        return winner = superHero1
-//    }
-//
-//    else if (s1Stat < s2Stat) {//
-//    return winner = superHero2
-//    }
-//
-//    else if (s1Stat === s2Stat) {
-//       return winner = draw
-//    }
-//}
+//$("#btn-newchallenge").click( function (){
+//    location.reload(true);
+//})
+        
 
-// $("button").on("click", function() {
-
-//     var queryURL = "api.php?action=opensearch&search=" + heroes.superName[0];
-
-//     $.ajaxPrefilter(function(options) {
-//         if (options.crossDomain && jQuery.support.cors) {
-//             options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-//         }
-//     });
-//     $.get(queryURL, function(response) {
-//         $("#moreWiki1").text(response);
-//     });
-// });
 
 $("#loveBtn").on("click", function (){
     $("h6").hide();
@@ -224,7 +167,4 @@ $("#loveBtn").on("click", function (){
         console.log(error);
         console.log(settings.url);
     })
-
 });
-
-
