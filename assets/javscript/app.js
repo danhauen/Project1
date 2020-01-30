@@ -24,15 +24,15 @@ var heroes = {
 
 $("button").on("click", function() {
     responseIndex = parseInt($(this).attr("id").slice(-1));
-
     var superHero = $("#userInput" + responseIndex).val().trim();
-    var queryURL = "https://superheroapi.com/api/10213837355721301/search/" + superHero;
 
-    $.ajaxPrefilter(function(options) {
-        if (options.crossDomain && jQuery.support.cors) {
-            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-        }
-    });
+    var queryURL = "https://cors-anywhere.herokuapp.com/superheroapi.com/api/10213837355721301/search/" + superHero;
+
+    // $.ajaxPrefilter(function(options) {
+    //     if (options.crossDomain && jQuery.support.cors) {
+    //         options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+    //     }
+    // });
 
     $.get(queryURL, function(response) {
         heroes.superName[responseIndex] = response.results[0].name;
@@ -154,6 +154,7 @@ function runChallenge (heroChallenge, heroSpd, heroStr, heroInt, heroPow, heroCo
             return maxIndex;
         }
 
+<<<<<<< HEAD
         if (maxIndex === 0){
             return 0;
         }
@@ -275,3 +276,58 @@ function runChallenge (heroChallenge, heroSpd, heroStr, heroInt, heroPow, heroCo
 
         }
 };
+=======
+//console.log(compareStats())
+
+
+//function compareStats() {
+//    if (s1Stat > s2Stat) {
+//        return winner = superHero1
+//    }
+//
+//    else if (s1Stat < s2Stat) {//
+//    return winner = superHero2
+//    }
+//
+//    else if (s1Stat === s2Stat) {
+//       return winner = draw
+//    }
+//}
+
+// $("button").on("click", function() {
+
+//     var queryURL = "api.php?action=opensearch&search=" + heroes.superName[0];
+
+//     $.ajaxPrefilter(function(options) {
+//         if (options.crossDomain && jQuery.support.cors) {
+//             options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+//         }
+//     });
+//     $.get(queryURL, function(response) {
+//         $("#moreWiki1").text(response);
+//     });
+// });
+
+$("#loveBtn").on("click", function (){
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://love-calculator.p.rapidapi.com/getPercentage?fname=" + heroes.nameResults[0].split(" ").join("+") + "&sname=" + heroes.nameResults[1].split(" ").join("+"),
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "love-calculator.p.rapidapi.com",
+            "x-rapidapi-key": "1d09547cd7msh4a347c795eaf60bp18ec31jsn7453d2f1be9c"
+        }
+    }
+    
+    $.ajax(settings).then(function (response) {
+        console.log(response.percentage);
+        $(".card-text").html("Percentage of combatibility: " + response.percentage + "%");
+        $(".card-text2").html(response.result);
+    }).catch(function(error){
+        console.log(error);
+        console.log(settings.url);
+    })
+
+});
+>>>>>>> 2fab4fe54121b471ea6760789bbd40fe91036af1
