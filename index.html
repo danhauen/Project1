@@ -30,7 +30,7 @@
         <!--challenge input row-->
         <div class="row input-row justify-content-between mx-auto">
             <!--left side challenger input button-->
-            <div class="col-3 col-10-sm input-group m-4 pl-4">
+            <div class="col-3 col-10-sm input-group m-4 pl-4 hero-left">
                 <div class="input-group-prepend">
                     <button class="btn btn-danger" type="button" id="button-addon0">Submit</button>
                 </div>
@@ -42,7 +42,7 @@
                 <span class="sr-only">Calculating results...</span>
             </div>
             <!--right side challenger input button-->
-            <div class="col-3 col-10-sm input-group m-4 pr-4">
+            <div class="col-3 col-10-sm input-group m-4 pr-4 hero-right">
                 <div class="input-group-prepend">
                     <button class="btn btn-danger" type="button" id="button-addon1">Submit</button>
                 </div>
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                         <!--challenge footer execute challenge button-->
-                        <div class="card-footer bg-dark challenge-button">
+                        <div class="card-footer bg-dark challenge-button challenge-select">
                             <input class="btn btn-danger btn-md mx-auto" type="submit" value="Start Challenge!" id="btn-challenge">
                             <input class="btn btn-danger btn-md mx-auto" type="submit" value="New Challenge?" id="btn-newchallenge">
                         </div>
@@ -106,8 +106,12 @@
                             <p class="card-title compat-card-title">Let's see how compatible these two challengers
                                 are...</p>
                             <input id="loveBtn" class="btn btn-danger btn-lg mx-auto" value="Click here for love">
+                            
                             <p class="card-text"></p>
                             <p class="card-text2"></p>
+
+                            <input id="loveBtnReload" class="btn btn-danger btn-lg mx-auto" value="Find another lover?">
+                            
                         </div>
                     </div>
                 </div>
