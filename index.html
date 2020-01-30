@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Superhero Battle</title>
     <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
@@ -23,12 +24,12 @@
         </div>
     </div>
     <!--container for challenger cards and challenge scroll-->
-    <div class="container">
+    <div class="container-sm clearfix">
         <!--challenge input row-->
-        <div class="row input-row d-flex justify-content-between mx-auto">
+        <div class="row input-row justify-content-between mx-auto">
             <!--left side challenger input button-->
-            <div class="col-3 input-group m-4" >
-                <div class="input-group-prepend pl-3">
+            <div class="col-3 col-10-sm input-group m-4 pl-4">
+                <div class="input-group-prepend">
                     <button class="btn btn-danger" type="button" id="button-addon0">Submit</button>
                 </div>
                 <input type="text" class="form-control" placeholder="Challenger" id="userInput0"
@@ -39,35 +40,33 @@
                 <span class="sr-only">Calculating results...</span>
             </div>
             <!--right side challenger input button-->
-            <div class="col-3 input-group m-4">
-                <input type="text" class="form-control" placeholder="Challenger" id="userInput1"
-                    aria-label="Recipient's username" aria-describedby="button-addon1">
-                <div class="input-group-append pr-3">
-                    <button class="btn btn-danger font-weight-light" type="button" id="button-addon1">Submit</button>
+            <div class="col-3 col-10-sm input-group m-4 pr-4">
+                <div class="input-group-prepend">
+                    <button class="btn btn-danger" type="button" id="button-addon1">Submit</button>
                 </div>
+                <input type="text" class="form-control" placeholder="Challenger" id="userInput1"
+                    aria-label="Example text with button addon" aria-describedby="button-addon1">
             </div>
         </div>
         <div class="container">
             <!--card row for img/stats and challenge card-->
             <div class="row d-flex justify-content-around">
-                
-                    <div class="card border-dark" style="width: 18rem;">
-                        <img id="superImage0"
-                            src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1207/ddgrigg120700025.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!--challenger2 api name-->
-                            <h5 id="challenger0" class="card-title text-center mb-0">Challenger 1</h5>
-                        </div>
-                        <!--Retrives API on the following after submitting challenger-->
-                        <ul class="list-group list-group-flush">
-                            <li id="name0" class="list-group-item">Full Name: </li>
-                            <li id="birthPlace0" class="list-group-item">Place of Birth: </li>
-                            <li id="alignment0" class="list-group-item">Alignment: </li>
-                            <li id="firstAppear0" class="list-group-item">First Appearance: </li>
-                        </ul>
+                <div class="card border-dark" style="width: 18rem;">
+                    <img id="superImage0"
+                        src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1207/ddgrigg120700025.jpg"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <!--challenger2 api name-->
+                        <h5 id="challenger0" class="card-title text-center mb-0">Challenger 1</h5>
                     </div>
-                
+                    <!--Retrives API on the following after submitting challenger-->
+                    <ul class="list-group list-group-flush">
+                        <li id="name0" class="list-group-item">Full Name: </li>
+                        <li id="birthPlace0" class="list-group-item">Place of Birth: </li>
+                        <li id="alignment0" class="list-group-item">Alignment: </li>
+                        <li id="firstAppear0" class="list-group-item">First Appearance: </li>
+                    </ul>
+                </div>
                 <!--center card for choosing and executing challenge-->
                 <div class="col-4 text-center">
                     <div class="card border-dark">
@@ -100,32 +99,32 @@
                     <div class="card compat-card border-dark my-3">
                         <h5 class="card-header bg-dark text-danger">Enough of all this fighting!</h5>
                         <div class="card-body">
-                            <h6 class="card-title">Let's see how compatible these two challengers are...</h6>
+                            <p class="card-title compat-card-title">Let's see how compatible these two challengers
+                                are...</p>
                             <input id="loveBtn" class="btn btn-danger btn-lg mx-auto" value="Click here for love">
                             <p class="card-text"></p>
                             <p class="card-text2"></p>
                         </div>
                     </div>
                 </div>
-               
-                    <div class="card border-dark" style="width: 18rem;">
-                        <!--challenger2 img-->
-                        <img id="superImage1"
-                            src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1311/ddgrigg131100004.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!--challenger2 api name-->
-                            <h5 id="challenger1" class="card-title text-center mb-0">Challenger 2</h5>
-                        </div>
-                        <!--Retrives API on the following after submitting challenger-->
-                        <ul class="list-group list-group-flush">
-                            <li id="name1" class="list-group-item">Full Name: </li>
-                            <li id="birthPlace1" class="list-group-item">Place of Birth: </li>
-                            <li id="alignment1" class="list-group-item">Alignment: </li>
-                            <li id="firstAppear1" class="list-group-item">First Appearance: </li>
-                        </ul>
+                <!-- challenger 2 -->
+                <div class="card border-dark" style="width: 18rem;">
+                    <!--challenger2 img-->
+                    <img id="superImage1"
+                        src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1311/ddgrigg131100004.jpg"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <!--challenger2 api name-->
+                        <h5 id="challenger1" class="card-title text-center mb-0">Challenger 2</h5>
                     </div>
-              
+                    <!--Retrives API on the following after submitting challenger-->
+                    <ul class="list-group list-group-flush">
+                        <li id="name1" class="list-group-item">Full Name: </li>
+                        <li id="birthPlace1" class="list-group-item">Place of Birth: </li>
+                        <li id="alignment1" class="list-group-item">Alignment: </li>
+                        <li id="firstAppear1" class="list-group-item">First Appearance: </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
