@@ -53,40 +53,123 @@ $("button").on("click", function() {
     });
 });
 
+var challenge = "";
+
 $(".list-group-item-action").click( function (){
-    var challenge = $(this).html();
-    console.log(challenge);
+    return challenge = $(this).html();
 
-//   if (challenge === "Strength") {
-//        var s1Stat = superHero1.results.powerstats.strength;
-//        var s2Stat = superHero2.results.powerstats.strength;
-//        compareStats(s1Stat, s2Stat);
-//    }
-//
-//    else if (challenge === "Speed"){
-//        var s1Stat = superHero1.results.powerstats.speed;
-//        var s2Stat = superHero2.results.powerstats.speed;
-//        compareStats(s1Stat, s2Stat);
-//    }
-//
-//    else if (challenge === "Superpower"){
-//        var s1Stat = superHero1.results.powerstats.superpower;
-//        var s2Stat = superHero2.results.powerstats.superpower;
-//        compareStats(s1Stat, s2Stat);
-//    }
-//
-//    else if (challenge === "Combat"){
-//        var s1Stat = superHero1.results.powerstats.combat;
-//        var s2Stat = superHero2.results.powerstats.combat;
-//        compareStats(s1Stat, s2Stat);
-//    }
-
-//    else if (challenge === "Intelligence"){
-//        var s1Stat = superHero1.results.powerstats.intelligence;
-//        var s2Stat = superHero2.results.powerstats.intelligence;
-//        compareStats(s1Stat, s2Stat);
-//    }
 });
+
+console.log(challenge)
+
+
+
+$("#btn-challenge").click( function (){
+
+    
+
+    //var heroSpd = heroes.statSpd;
+    //var heroStr = heroes.statStr;
+    //var heroInt = heroes.statInt;
+    //var heroPow = heroes.statPow;
+    //var heroCom = heroes.statCom;
+
+    //var heroChallenge = challenge;
+
+    //runChallenge(heroChallenge, heroSpd, heroStr, heroInt, heroPow,// heroCom);
+    
+    //console.log(runChallenge());
+
+    //select the losing hero and fade out, using zero card as placeholder. we'll add a function to select the proper losing hero after the challenge function is up and running.
+
+    $(".left-hero").addClass("animated fadeOutLeftBig")
+    $(".right-hero").addClass("animated fadeOutRightBig")
+    
+
+
+    
+
+});
+
+$("#btn-newchallenge").click( function (){
+    location.reload(true);
+
+})
+        
+        
+
+    
+    
+
+
+function runChallenge (heroChallenge, heroSpd, heroStr, heroInt, heroPow, heroCom){
+
+
+
+    if (heroChallenge === "Strength") {
+
+        console.log("strength check hit");
+
+        var strength = heroStr
+
+        indexOfMax(strength);
+
+        function indexOfMax(strength) {
+            if (strength.length === 0) {
+                return -1;
+            }
+        
+            var max = strength[0];
+            var maxIndex = 0;
+        
+            for (var i = 1; i < strength.length; i++) {
+                if (strength[i] > max) {
+                    maxIndex = i;
+                    max = strength[i];
+                }
+            }
+        
+            return maxIndex;
+        }
+
+        if (maxIndex === 0){
+            return 0
+        }
+        
+        else {
+            return 1
+        }
+
+
+        
+
+    }
+    else if (heroChallenge === "Speed") {
+
+        console.log("speed check hit");
+        var speed = heroSpd;
+
+        indexOfMax(speed);
+
+        function indexOfMax(speed) {
+            if (speed.length === 0) {
+                return -1;
+            }
+        
+            var max = speed[0];
+            var maxIndex = 0;
+        
+            for (var i = 1; i < speed.length; i++) {
+                if (speed[i] > max) {
+                    maxIndex = i;
+                    max = speed[i];
+                }
+            }
+        
+            return maxIndex;
+        }
+    }
+};
 
 //console.log(compareStats())
 
@@ -143,4 +226,5 @@ $("#loveBtn").on("click", function (){
     })
 
 });
+
 
