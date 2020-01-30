@@ -7,14 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Superhero Battle</title>
+    <!-- main font -->
     <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+    <!-- secondary font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i&display=swap" rel="stylesheet">
+    <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- css style -->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <!-- animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-         rel = "stylesheet">
+
 </head>
 
 <body>
@@ -51,16 +55,15 @@
                     aria-label="Example text with button addon" aria-describedby="button-addon1">
             </div>
         </div>
-
-        <div class="container col-12">
-            <!--card row for img/stats and challenge card-->
+        <!--card for img/stats and challenge card-->
+        <div class="container col-12"> 
             <div class="row d-flex justify-content-around">
                 <div class="card border-dark shadow-lg hero-left" style="width: 18rem;">
                     <img id="superImage0"
                         src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1207/ddgrigg120700025.jpg"
                         class="card-img-top" alt="...">
                     <div class="card-body challenger-card-body">
-                        <!--challenger2 api name-->
+                        <!--challenger1 api name-->
                         <h5 id="challenger0" class="card-title text-center mb-0">Challenger 1</h5>
                     </div>
                     <!--Retrives API on the following after submitting challenger-->
@@ -76,28 +79,30 @@
                     <div class="card border-dark shadow-lg challenge-select">
                         <div class="card-header col-12 bg-dark text-danger px-0">Choose your Challenge!</div>
                         <div class="col-12 challenge-list px-0">
-                            <div class="list-group list-group-flush" id="list-tab selectable" role="tablist">
-                                <a class="list-group-item list-group-item-action challenge-list ui-widget-content px-0"
+                            <div class="list-group list-group-flush" id="list-tab" role="tablist">
+                                <a class="list-group-item list-group-item-action challenge-list px-0"
                                     id="list-home-list" data-toggle="list" href="#list-strength" role="tab"
                                     aria-controls="home">Strength</a>
-                                <a class="list-group-item list-group-item-action challenge-list ui-widget-content px-0"
+                                <a class="list-group-item list-group-item-action challenge-list px-0"
                                     id="list-profile-list" data-toggle="list" href="#list-profile" role="tab"
                                     aria-controls="profile">Speed</a>
-                                <a class="list-group-item list-group-item-action challenge-list ui-widget-content px-0"
+                                <a class="list-group-item list-group-item-action challenge-list px-0"
                                     id="list-messages-list" data-toggle="list" href="#list-messages" role="tab"
                                     aria-controls="messages">SuperPower</a>
-                                <a class="list-group-item list-group-item-action challenge-list ui-widget-content px-0"
+                                <a class="list-group-item list-group-item-action challenge-list px-0"
                                     id="list-settings-list" data-toggle="list" href="#list-settings" role="tab"
                                     aria-controls="settings">Combat</a>
-                                <a class="list-group-item list-group-item-action challenge-list ui-widget-content px-0"
+                                <a class="list-group-item list-group-item-action challenge-list px-0"
                                     id="list-settings-list" data-toggle="list" href="#list-settings" role="tab"
                                     aria-controls="settings">Intelligence</a>
                             </div>
                         </div>
                         <!--challenge footer execute challenge button-->
                         <div class="card-footer bg-dark challenge-button challenge-select">
-                            <input class="btn btn-danger btn-md mx-auto" type="submit" value="Start Challenge!" id="btn-challenge">
-                            <input class="btn btn-danger btn-md mx-auto" type="submit" value="New Challenge?" id="btn-newchallenge">
+                            <input class="btn btn-danger btn-md mx-auto" type="submit" value="Start Challenge!"
+                                id="btn-challenge">
+                            <input class="btn btn-danger btn-md mx-auto" type="submit" value="New Challenge?"
+                                id="btn-newchallenge">
                         </div>
                     </div>
                     <!-- <div class="lds-heart"><div></div></div> -->
@@ -108,16 +113,13 @@
                             <p class="card-title compat-card-title">Let's see how compatible these two challengers
                                 are...</p>
                             <input id="loveBtn" class="btn btn-danger btn-lg mx-auto" value="Click here for love">
-                            
+                            <!-- hidden text compatibility -->
                             <p class="card-text"></p>
                             <p class="card-text2"></p>
-
                             <input id="loveBtnReload" class="btn btn-danger btn-lg mx-auto" value="Find another lover?">
-                            
                         </div>
                     </div>
                 </div>
-              
                 <!-- challenger 2 -->
                 <div class="card border-dark shadow-lg hero-right" style="width: 18rem;">
                     <!--challenger2 img-->
@@ -139,6 +141,7 @@
             </div>
         </div>
     </div>
+    <!-- footer -->
     <div class="container-fluid footer bg-dark border-top border-danger">
         <div class="row footer-row">
             <div class="col-10-lg mx-auto">

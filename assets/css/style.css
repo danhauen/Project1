@@ -12,9 +12,22 @@ body {
 		1px 1px 0 rgb(253, 252, 252);
 } 
 
+.card-img-top {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+}
+
+.active {
+    color: whitesmoke !important;
+    background-color: #dc3545 !important;
+    box-shadow: #dc3545 !important;
+    outline: none !important;
+}
+
 .challenger-card-body {
     width: 100%;
-    height: 3vw; */
+    height: 3vw;
 }
 
 .compat-body {
@@ -72,10 +85,9 @@ p {
     font-size: 15px;
 }
 
-.challenge-list:hover , .challenge-list.active {
-    background: #dc3545;
-    color: ghostwhite;
-    box-shadow: none;
+.challenge-list:hover {
+    box-shadow: #dc3545 !important;
+    outline: #dc3545 !important;
  } 
 
 .footer {
@@ -86,11 +98,9 @@ p {
 
  }
 
- .card-img-top {
-    width: 100%;
-    height: 20vw;
-    object-fit: cover;
-}
+ 
+
+
 
 /* .lds-heart {
     display: inline-block;

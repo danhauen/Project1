@@ -1,8 +1,18 @@
+
 $(document).ready(function () {
     $("#loveBtnReload").hide();
     $("#btn-newchallenge").hide();
     // $(".lds-heart").hide();
+
     
+    
+
+
+    
+    $('#list-tab a').click(function(){
+        $('.active').removeClass('active');
+        $(this).addClass('active');
+    });
 
 
     var responseIndex = -1;

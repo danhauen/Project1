@@ -666,27 +666,6 @@
   transform-origin: center;
 }
 
-@-webkit-keyframes lds-heart {
-  0% {
-    transform: scale(0.95);
-  }
-  5% {
-    transform: scale(1.1);
-  }
-  39% {
-    transform: scale(0.85);
-  }
-  45% {
-    transform: scale(1);
-  }
-  60% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(0.9);
-  }
-}
-
 @-webkit-keyframes heartBeat {
   0% {
     -webkit-transform: scale(1);
