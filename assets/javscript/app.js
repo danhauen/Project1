@@ -82,8 +82,8 @@ $("#btn-challenge").click( function (){
 
     //select the losing hero and fade out, using zero card as placeholder. we'll add a function to select the proper losing hero after the challenge function is up and running.
 
-    $(".left-hero").addClass("animated fadeOutLeftBig")
-    $(".right-hero").addClass("animated fadeOutRightBig")
+    $(".hero-left").addClass("animated fadeOutLeftBig")
+    $(".hero-right").addClass("animated fadeOutRightBig")
     
 
 
