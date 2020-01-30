@@ -59,11 +59,9 @@ var challengeList = ["Strength","Speed","SuperPower","Combat","Intelligence"]
 var challenge = -1;
 $(".list-group-item-action").click(function(){
     challenge = challengeList.indexOf($(this).html());
-    console.log(challenge);
 });
 
 function compareStat(stats){
-    console.log("made it");
     stats = stats[0] - stats[1];
     if(stats > 0){
         $("#results").text(heroes.superName[0] + " wins!");
@@ -77,7 +75,6 @@ function compareStat(stats){
 };
 
 $("#btn-challenge").click(function(){
-    console.log("click");
     switch(challenge){
         case -1:
             break;
