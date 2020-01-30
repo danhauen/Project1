@@ -64,13 +64,13 @@ $(".list-group-item-action").click(function(){
 function compareStat(stats){
     stats = stats[0] - stats[1];
     if(stats > 0){
-        $("#results").text(heroes.superName[0] + " wins!");
+        $(".left-hero").addClass("animated fadeOutLeftBig")
     }
     else if(stats < 0){
-        $("#results").text(heroes.superName[1] + " wins!");
+        $(".right-hero").addClass("animated fadeOutRightBig")
     }
     else{
-        $("#results").text("It's a tie.");
+        console.log("tie");
     };
 };
 
@@ -94,17 +94,11 @@ $("#btn-challenge").click(function(){
             compareStat(heroes.statInt);
             break;
     }
-});
+});        
 
-    //$(".left-hero").addClass("animated fadeOutLeftBig")
-    //$(".right-hero").addClass("animated fadeOutRightBig")
-    
-
-//$("#btn-newchallenge").click( function (){
-//    location.reload(true);
-//})
-        
-
+$("#btn-newchallenge").click( function (){
+    location.reload(true);
+})
 
 $("#loveBtn").on("click", function (){
     $("h6").hide();
