@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/animate.css" type="text/css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     
 </head>
 
@@ -20,7 +20,7 @@
     <div class="container-fluid bg-dark border-bottom border-danger">
         <div class="row header-row">
             <div class="col-10-lg mx-auto">
-                <h1 class="header text-danger">Superhero Battle Royal</h1>
+                <h1 class="header text-danger">Superhero Battle Royale</h1>
             </div>
         </div>
     </div>
@@ -28,8 +28,9 @@
     <div class="container">
         <!--challenge input row-->
         <div class="row input-row d-flex justify-content-between">
+
             <!--left side challenger input button-->
-            <div class="col-3 input-group m-4 pr-4">
+            <div class="col-3 input-group m-4 pr-4 left-hero">
                 <div class="input-group-prepend">
                     <button class="btn btn-danger" type="button" id="button-addon0">Submit</button>
                 </div>
@@ -38,7 +39,7 @@
             </div>
             
             <!--right side challenger input button-->
-            <div class="col-3 input-group m-4 pr-4">
+            <div class="col-3 input-group m-4 pr-4 right-hero">
                 <input type="text" class="form-control" placeholder="Challenger" id="userInput1"
                     aria-label="Recipient's username" aria-describedby="button-addon1">
                 <div class="input-group-append">
@@ -46,9 +47,10 @@
                 </div>
             </div>
         </div>
+
         <!--card row for img/stats and challenge card-->
         <div class="row d-flex justify-content-around">
-            <div class="col mb-4">
+            <div class="col mb-4 left-hero">
                 <div class="card border-dark" style="width: 18rem;">
                     <img id="superImage0" src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1207/ddgrigg120700025.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -85,12 +87,15 @@
                     <!--execute challenge button-->
                     <div class="card-footer col-12 bg-dark mt-0">
                         <input class="btn btn-danger btn-lg mx-auto" id= "btn-challenge" type="submit" value="Start Challenge!">
+                        <input class="btn btn-danger btn-lg mx-auto" id= "btn-newchallenge" type="submit" value="Try another challenge?">
+                        
                     </div>
                 </div>
                 <!--spinner to be executed on start btn with small timer delay to simulate calculating-->
                 <div class="spinner-border text-danger m-4" role="status">
                     <span class="sr-only">Calculating results...</span>
                 </div>
+                
                 <!--results box to appear after results-->
                 <div class="card mt-3">
                     <h5 class="card-header bg-dark border-dark text-danger">Enough of all this fighting!</h5>
@@ -103,7 +108,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col mb-4">
+            <div class="col mb-4 right-hero">
                 <div class="card border-dark" style="width: 18rem;">
                     <!--challenger2 img-->
                     <img id="superImage1" src="https://images.assetsdelivery.com/compings_v2/ddgrigg/ddgrigg1311/ddgrigg131100004.jpg" class="card-img-top" alt="...">
