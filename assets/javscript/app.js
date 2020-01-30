@@ -60,7 +60,7 @@ $(".list-group-item-action").click( function (){
 
 });
 
-console.log(challenge);
+console.log(challenge)
 
 
 
