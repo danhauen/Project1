@@ -1,19 +1,19 @@
-
+// document ready
 $(document).ready(function () {
     $("#loveBtnReload").hide();
-    $("#btn-newchallenge").hide();
-    // $(".lds-heart").hide();
-
-    
-    
-
-
-    
+    //$("#btn-newchallenge").hide();
+   
+   
+    // challenge active
     $('#list-tab a').click(function(){
         $('.active').removeClass('active');
         $(this).addClass('active');
     });
 
+    // modal
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+      })
 
     var responseIndex = -1;
     var heroes = {
@@ -41,6 +41,7 @@ $(document).ready(function () {
         },
     };
 
+    // ajax call for challenges to determine winner/loser
     $("button").on("click", function () {
         responseIndex = parseInt($(this).attr("id").slice(-1));
         var superHero = $("#userInput" + responseIndex).val().trim();
@@ -72,28 +73,39 @@ $(document).ready(function () {
         });
     });
 
+    // variables in challenge list to be called for
     var challengeList = ["Strength", "Speed", "SuperPower", "Combat", "Intelligence"]
     var challenge = -1;
     $(".list-group-item-action").click(function () {
         challenge = challengeList.indexOf($(this).html());
     });
 
+    // function to determine winner and loser with animation
     function compareStat(stats) {
         stats = stats[0] - stats[1];
         if (stats > 0) {
             $(".hero-right").addClass("animated fadeOutRightBig")
+            // $(".challenge-select").addClass("animated fadeOutUpBig")
+            // $(".compat-card").addClass("animated fadeOutDownBig")
+            // $("#btn-reset").hide();
+            // $("#btn-goBack").show();
+
         }
         else if (stats < 0) {
             $(".hero-left").addClass("animated fadeOutLeftBig")
+            // $(".challenge-select").addClass("animated fadeOutUpBig")
+            // $(".compat-card").addClass("animated fadeOutDownBig")
+            // $("#btn-reset").hide();
+            // $("#btn-goBack").show();
         }
         else {
             console.log("tie");
         };
     };
-
+    // challenge function btn in challeng list
     $("#btn-challenge").click(function () {
-        $("#btn-challenge").hide();
-        $("#btn-newchallenge").show();
+        // $("#btn-challenge").hide();
+        // $("#btn-newchallenge").show();
         switch (challenge) {
             case -1:
                 break;
@@ -115,10 +127,21 @@ $(document).ready(function () {
         }
     });
 
+    // $("#btn-reset").click(function () {
+    //     location.reload(true);
+    // })
+
+    // $("#btn-goBack").click(function () {
+    //     $(".challenge-select").addClass("animated fadeInDownBig")
+    //     $(".compat-card").addClass("animated fadeInUpBig")
+    // })
+
+    // new challenge btn
     $("#btn-newchallenge").click(function () {
         location.reload(true);
     })
 
+    // love calculator api
     $("#loveBtn").on("click", function () {
         $(".compat-card-title").hide();
         $("#loveBtn").hide();
@@ -132,9 +155,8 @@ $(document).ready(function () {
                 "x-rapidapi-host": "love-calculator.p.rapidapi.com",
                 "x-rapidapi-key": "1d09547cd7msh4a347c795eaf60bp18ec31jsn7453d2f1be9c"
             }
-
         }
-
+        // ajax call for love calculator
         $.ajax(settings).then(function (response) {
             console.log(response.percentage);
             $(".card-text").html("Percentage of combatibility: " + response.percentage + "%");
@@ -143,11 +165,11 @@ $(document).ready(function () {
             console.log(error);
             console.log(settings.url);
         })
-
+        // challenge selections fade up with love test
         $(".challenge-select").addClass("animated fadeOutUpBig")
-        // $(".lds-heart").show();
+    
     });
-
+    // reload/reset love btn
     $("#loveBtnReload").on("click", function () {
         location.reload(true);
     });
