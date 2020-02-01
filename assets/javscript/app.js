@@ -1,7 +1,7 @@
 // document ready
 $(document).ready(function () {
     $("#loveBtnReload").hide();
-    //$("#btn-newchallenge").hide();
+    $("#btn-newchallenge").hide();
    
    
     // challenge active
@@ -88,7 +88,6 @@ $(document).ready(function () {
             // $(".challenge-select").addClass("animated fadeOutUpBig")
             // $(".compat-card").addClass("animated fadeOutDownBig")
             // $("#btn-reset").hide();
-            // $("#btn-goBack").show();
 
         }
         else if (stats < 0) {
@@ -96,7 +95,6 @@ $(document).ready(function () {
             // $(".challenge-select").addClass("animated fadeOutUpBig")
             // $(".compat-card").addClass("animated fadeOutDownBig")
             // $("#btn-reset").hide();
-            // $("#btn-goBack").show();
         }
         else {
             console.log("tie");
@@ -104,8 +102,8 @@ $(document).ready(function () {
     };
     // challenge function btn in challeng list
     $("#btn-challenge").click(function () {
-        // $("#btn-challenge").hide();
-        // $("#btn-newchallenge").show();
+        $("#btn-challenge").hide();
+        $("#btn-newchallenge").show();
         switch (challenge) {
             case -1:
                 break;
@@ -127,14 +125,9 @@ $(document).ready(function () {
         }
     });
 
-    // $("#btn-reset").click(function () {
-    //     location.reload(true);
-    // })
-
-    // $("#btn-goBack").click(function () {
-    //     $(".challenge-select").addClass("animated fadeInDownBig")
-    //     $(".compat-card").addClass("animated fadeInUpBig")
-    // })
+    $("#btn-reset").click(function () {
+        location.reload(true);
+    })
 
     // new challenge btn
     $("#btn-newchallenge").click(function () {
