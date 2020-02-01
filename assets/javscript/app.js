@@ -72,6 +72,8 @@ $(document).ready(function () {
                     responseIndex = -1;
                 } else {
                     console.log('unable to process');
+                    // $(".userInput0").empty();
+                    // $(".userInput0").attr("placeholder", "Error 404, hero not found.")
                 }
             }
         });
