@@ -4,6 +4,12 @@ $(document).ready(function () {
     $("#btn-newchallenge").hide();
     $("#instructions").hide();
 
+    $(".hero-left").addClass("animated fadeInLeftBig");
+    $(".hero-right").addClass("animated fadeInRightBig");
+    $(".compat-card").addClass("animated fadeInUpBig");
+    $(".challenge-select").addClass("animated fadeInDownBig");
+   
+   
     // challenge active
     $('#list-tab a').click(function () {
         $('.active').removeClass('active');
@@ -61,6 +67,7 @@ $(document).ready(function () {
                     heroes.firstAppearResults[responseIndex] = response.results[i].biography["first-appearance"];
                     heroes.alignment[responseIndex] = response.results[i].biography.alignment;
                     heroes.image[responseIndex] = response.results[i].image.url;
+                    
 
                     heroes.statInt[responseIndex] = parseInt(response.results[i].powerstats.intelligence);
                     heroes.statStr[responseIndex] = parseInt(response.results[i].powerstats.strength);
@@ -88,23 +95,74 @@ $(document).ready(function () {
     function compareStat(stats) {
         stats = stats[0] - stats[1];
         if (stats > 0) {
-            $(".hero-right").addClass("animated fadeOutRightBig")
-            // $(".challenge-select").addClass("animated fadeOutUpBig")
-            // $(".compat-card").addClass("animated fadeOutDownBig")
-            // $("#btn-reset").hide();
+            $(".hero-right").removeClass("fadeInRightBig").addClass("fadeOutRightBig");
+            //$(".challenge-select").removeClass("fadeOutUpBig").addClass("fadeOutUpBig")
+            $(".compat-card").removeClass("fadeInUpBig").addClass("fadeOutDownBig");
+            $("#btn-reset").hide();
+            
+            
+
+            $("#results-title").html("<p>" + heroes.superName[0] + " wins! </p>" );
+
+            $("#results-body").append("<p> Strength: " + heroes.statStr[0] + "</p>" );
+            $("#results-body").append("<p> Intelligence: " + heroes.statInt[0] + "</p>" );
+
+            $("#results-body").append("<p> Speed: " + heroes.statSpd[0] + "</p>" );
+            $("#results-body").append("<p> Combat Rating: " + heroes.statCom[0] + "</p>" );
+            $("#results-body").append("<p> Superpower Rating: " + heroes.statPow[0] + "</p>" );
+            $("#results-body").append("<p> Durability: " + heroes.statDur[0] + "</p>" );
+
+            $("#results-modal").modal('show');
+
 
         }
         else if (stats < 0) {
-            $(".hero-left").addClass("animated fadeOutLeftBig")
-            // $(".challenge-select").addClass("animated fadeOutUpBig")
-            // $(".compat-card").addClass("animated fadeOutDownBig")
-            // $("#btn-reset").hide();
+            $(".hero-left").removeClass("fadeInLeftBig").addClass("fadeOutLeftBig");
+            //$(".challenge-select").removeClass("fadeInDownBig").addClass("fadeOutUpBig")
+            $(".compat-card").removeClass("fadeInUpBig").addClass("fadeOutDownBig");
+            $("#btn-reset").hide();
+
+            
+
+            $("#results-title").html("<p>" + heroes.superName[1] + " wins!" );
+
+            $("#results-body").append("<p> Strength: " + heroes.statStr[1] + "</p>" );
+            $("#results-body").append("<p> Intelligence: " + heroes.statInt[1] + "</p>" );
+
+            $("#results-body").append("<p> Speed: " + heroes.statSpd[1] + "</p>" );
+            $("#results-body").append("<p> Combat Rating: " + heroes.statCom[1] + "</p>" );
+            $("#results-body").append("<p> Superpower Rating: " + heroes.statPow[1] + "</p>" );
+            $("#results-body").append("<p> Durability: " + heroes.statDur[1] + "</p>" );
+
+            $("#results-modal").modal('show')
         }
         else {
+            $(".hero-left").removeClass("fadeInLeftBig").addClass("fadeOutLeftBig");
+            $(".hero-right").removeClass("fadeInRightBig").addClass("fadeOutRightBig");
+            $(".compat-card").removeClass("fadeInUpBig").addClass("fadeOutDownBig");
+            $("#btn-reset").hide();
+
+            
+
+            $("#results-title").append("<p> Nobody wins! </p>" );
+            $("#results-body").append("<br><br>");
+            $("#results-body").append("<p> It's a tie! </p>" );
+
+
+
+            $('#results-modal').modal('show');
             console.log("tie");
+            
+
         };
     };
-    // challenge function btn in challeng list
+
+    //modal focus control
+    $('#results-modal').on('shown.bs.modal', function () {
+        $('#results-modal').trigger('focus')
+      })
+
+    // challenge function btn in challenge list
     $("#btn-challenge").click(function () {
         $("#btn-challenge").hide();
         $("#btn-newchallenge").show();
@@ -130,9 +188,10 @@ $(document).ready(function () {
     });
 
     $(".nav-instructions").click(function () {
+        $("#instructions").show();
         $(".challenge-select").hide();
         $(".compat-card").hide();
-        $("#instructions").show();
+        
     })
 
     $("#exit-btn").click(function () {
@@ -147,7 +206,13 @@ $(document).ready(function () {
 
     // new challenge btn
     $("#btn-newchallenge").click(function () {
-        location.reload(true);
+        $(".fadeOutLeftBig").removeClass("fadeOutLeftBig").addClass("fadeInLeftBig");
+        $(".fadeOutRightBig").removeClass("fadeOutRightBig").addClass("fadeInRightBig");
+        $(".compat-card").removeClass("fadeOutDownBig").addClass("fadeInUpBig");
+        $("#btn-newchallenge").hide();
+        $("#btn-challenge").show();
+        $("btn-reset").show();
+
     })
 
     // love calculator api
@@ -175,11 +240,25 @@ $(document).ready(function () {
             console.log(settings.url);
         })
         // challenge selections fade up with love test
-        $(".challenge-select").addClass("animated fadeOutUpBig")
-
+        $(".challenge-select").removeClass("fadeInDownBig").addClass("animated fadeOutUpBig")
+    
     });
     // reload/reset love btn
     $("#loveBtnReload").on("click", function () {
         location.reload(true);
     });
+});
+
+//kill modal
+$("#btn-modal-close").click( function () {
+    $("results-modal").modal("hide");
+    $("#results-modal").modal("dispose");
+
+});
+
+//kill modal children on hide
+$("#results-modal").on('hidden.bs.modal', function (){
+    $("#results-body").empty();
+    $("#results-title").empty();
+
 });
