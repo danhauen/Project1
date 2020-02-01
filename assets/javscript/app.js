@@ -26,33 +26,39 @@ var heroes = {
 
 $("button").on("click", function() {
     responseIndex = parseInt($(this).attr("id").slice(-1));
-    var superHero = $("#userInput" + responseIndex).val().trim();
+    var superHero = $("#userInput" + responseIndex).val().trim().toLowerCase();
+    console.log(superHero);
 
     var queryURL = "https://cors-anywhere.herokuapp.com/superheroapi.com/api/10213837355721301/search/" + superHero;
 
-    // $.ajaxPrefilter(function(options) {
-    //     if (options.crossDomain && jQuery.support.cors) {
-    //         options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-    //     }
-    // });
-
     $.get(queryURL, function(response) {
-        heroes.superName[responseIndex] = response.results[0].name;
-        heroes.nameResults[responseIndex] = response.results[0].biography["full-name"];
-        heroes.birthResults[responseIndex] = response.results[0].biography["place-of-birth"];
-        heroes.firstAppearResults[responseIndex] = response.results[0].biography["first-appearance"];
-        heroes.alignment[responseIndex] = response.results[0].biography.alignment;
-        heroes.image[responseIndex] = response.results[0].image.url;
 
-        heroes.statInt[responseIndex] = parseInt(response.results[0].powerstats.intelligence);
-        heroes.statStr[responseIndex] = parseInt(response.results[0].powerstats.strength);
-        heroes.statSpd[responseIndex] = parseInt(response.results[0].powerstats.speed);
-        heroes.statDur[responseIndex] = parseInt(response.results[0].powerstats.durability);
-        heroes.statPow[responseIndex] = parseInt(response.results[0].powerstats.power);
-        heroes.statCom[responseIndex] = parseInt(response.results[0].powerstats.combat);
-        heroes.display();
-        responseIndex = -1;
-    });
+        console.log(response);
+        for (i=0; i<response.results.length; i++) {
+            var responseLower = response.results[i].name
+            console.log(responseLower.toLowerCase());
+            if (superHero === responseLower.toLowerCase()) {
+
+                heroes.superName[responseIndex] = response.results[i].name;
+                heroes.nameResults[responseIndex] = response.results[i].biography["full-name"];
+                heroes.birthResults[responseIndex] = response.results[i].biography["place-of-birth"];
+                heroes.firstAppearResults[responseIndex] = response.results[i].biography["first-appearance"];
+                heroes.alignment[responseIndex] = response.results[i].biography.alignment;
+                heroes.image[responseIndex] = response.results[i].image.url;
+                
+                heroes.statInt[responseIndex] = parseInt(response.results[i].powerstats.intelligence);
+                heroes.statStr[responseIndex] = parseInt(response.results[i].powerstats.strength);
+                heroes.statSpd[responseIndex] = parseInt(response.results[i].powerstats.speed);
+                heroes.statDur[responseIndex] = parseInt(response.results[i].powerstats.durability);
+                heroes.statPow[responseIndex] = parseInt(response.results[i].powerstats.power);
+                heroes.statCom[responseIndex] = parseInt(response.results[i].powerstats.combat);
+                heroes.display();
+                responseIndex = -1;
+            } else {
+                console.log('unable to process');
+            }
+        }
+            });
 });
 
 var challengeList = ["Strength","Speed","SuperPower","Combat","Intelligence"]
