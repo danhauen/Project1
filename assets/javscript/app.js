@@ -2,7 +2,7 @@
 $(document).ready(function () {
     $("#loveBtnReload").hide();
     $("#btn-newchallenge").hide();
-
+    $("#instructions").hide();
 
     // challenge active
     $('#list-tab a').click(function () {
@@ -128,6 +128,18 @@ $(document).ready(function () {
                 break;
         }
     });
+
+    $(".nav-instructions").click(function () {
+        $(".challenge-select").hide();
+        $(".compat-card").hide();
+        $("#instructions").show();
+    })
+
+    $("#exit-btn").click(function () {
+        $(".challenge-select").show();
+        $(".compat-card").show();
+        $("#instructions").hide();
+    })
 
     $("#btn-reset").click(function () {
         location.reload(true);

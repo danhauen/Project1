@@ -19,6 +19,14 @@ body {
     
    
 }
+
+.nav-link {
+    font-family: 'Open Sans', sans-serif !important;
+    font-style: italic;
+}
+
+
+
 /* .middle {
     transition: 0.5s ease;
     opacity: 0;
