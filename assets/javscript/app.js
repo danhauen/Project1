@@ -235,12 +235,14 @@ $(document).ready(function () {
     });
 });
 
+//kill modal
 $("#btn-modal-close").click( function () {
     $("results-modal").modal("hide");
     $("#results-modal").modal("dispose");
 
 });
 
+//kill modal children on hide
 $("#results-modal").on('hidden.bs.modal', function (){
     $("#results-body").empty();
     $("#results-title").empty();

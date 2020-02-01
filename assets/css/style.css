@@ -122,26 +122,7 @@ p {
 
 
 
-.modal-title{
+.modal-title,.modal-body,.modal-footer,.modal-header,.m-content{
     background-color: white;
-
+    
 }
-
- .modal-body{
-    background-color: white;
-
- }
- 
- .modal-footer{
-    background-color: white;
-   
- }
-
- .modal-header{
-    background-color: white;
-
- }
-
- .m-content{
-     background-color: white;
- }
