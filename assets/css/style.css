@@ -12,6 +12,7 @@ body {
 		1px 1px 0 rgb(253, 252, 252);
 } 
 
+
 .card-img-top {
     
     width: 100%;
@@ -120,4 +121,27 @@ p {
 }
 
 
+
+.modal-title{
+    background-color: white;
+
+}
+
+ .modal-body{
+    background-color: white;
+
+ }
  
+ .modal-footer{
+    background-color: white;
+   
+ }
+
+ .modal-header{
+    background-color: white;
+
+ }
+
+ .m-content{
+     background-color: white;
+ }
