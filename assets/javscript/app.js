@@ -2,13 +2,13 @@
 $(document).ready(function () {
     $("#loveBtnReload").hide();
     $("#btn-newchallenge").hide();
+    $("#instructions").hide();
 
     $(".hero-left").addClass("animated fadeInLeftBig");
     $(".hero-right").addClass("animated fadeInRightBig");
     $(".compat-card").addClass("animated fadeInUpBig");
     $(".challenge-select").addClass("animated fadeInDownBig");
-   
-   
+
     // challenge active
     $('#list-tab a').click(function () {
         $('.active').removeClass('active');
@@ -95,17 +95,13 @@ $(document).ready(function () {
         stats = stats[0] - stats[1];
         if (stats > 0) {
             $(".hero-right").removeClass("fadeInRightBig").addClass("fadeOutRightBig");
-            //$(".challenge-select").removeClass("fadeOutUpBig").addClass("fadeOutUpBig")
             $(".compat-card").removeClass("fadeInUpBig").addClass("fadeOutDownBig");
             $("#btn-reset").hide();
             
-            
-
             $("#results-title").html("<p>" + heroes.superName[0] + " wins! </p>" );
 
             $("#results-body").append("<p> Strength: " + heroes.statStr[0] + "</p>" );
             $("#results-body").append("<p> Intelligence: " + heroes.statInt[0] + "</p>" );
-
             $("#results-body").append("<p> Speed: " + heroes.statSpd[0] + "</p>" );
             $("#results-body").append("<p> Combat Rating: " + heroes.statCom[0] + "</p>" );
             $("#results-body").append("<p> Superpower Rating: " + heroes.statPow[0] + "</p>" );
@@ -117,17 +113,13 @@ $(document).ready(function () {
         }
         else if (stats < 0) {
             $(".hero-left").removeClass("fadeInLeftBig").addClass("fadeOutLeftBig");
-            //$(".challenge-select").removeClass("fadeInDownBig").addClass("fadeOutUpBig")
             $(".compat-card").removeClass("fadeInUpBig").addClass("fadeOutDownBig");
             $("#btn-reset").hide();
-
-            
 
             $("#results-title").html("<p>" + heroes.superName[1] + " wins!" );
 
             $("#results-body").append("<p> Strength: " + heroes.statStr[1] + "</p>" );
             $("#results-body").append("<p> Intelligence: " + heroes.statInt[1] + "</p>" );
-
             $("#results-body").append("<p> Speed: " + heroes.statSpd[1] + "</p>" );
             $("#results-body").append("<p> Combat Rating: " + heroes.statCom[1] + "</p>" );
             $("#results-body").append("<p> Superpower Rating: " + heroes.statPow[1] + "</p>" );
@@ -141,18 +133,15 @@ $(document).ready(function () {
             $(".compat-card").removeClass("fadeInUpBig").addClass("fadeOutDownBig");
             $("#btn-reset").hide();
 
-            
 
             $("#results-title").append("<p> Nobody wins! </p>" );
             $("#results-body").append("<br><br>");
             $("#results-body").append("<p> It's a tie! </p>" );
 
 
-
             $('#results-modal').modal('show');
             console.log("tie");
             
-
         };
     };
 
@@ -186,6 +175,20 @@ $(document).ready(function () {
         }
     });
 
+    $(".nav-instructions").click(function () {
+        $("#instructions").show();
+        $(".challenge-select").hide();
+        $(".compat-card").hide();  
+    })
+
+    //exit intructions btn
+    $("#exit-btn").click(function () {
+        $(".challenge-select").show();
+        $(".compat-card").show();
+        $("#instructions").hide();
+    })
+
+    // reset btn
     $("#btn-reset").click(function () {
         location.reload(true);
     })
@@ -198,7 +201,6 @@ $(document).ready(function () {
         $("#btn-newchallenge").hide();
         $("#btn-challenge").show();
         $("btn-reset").show();
-
     })
 
     // love calculator api
@@ -239,7 +241,6 @@ $(document).ready(function () {
 $("#btn-modal-close").click( function () {
     $("results-modal").modal("hide");
     $("#results-modal").modal("dispose");
-
 });
 
 //kill modal children on hide

@@ -12,32 +12,16 @@ body {
 		1px 1px 0 rgb(253, 252, 252);
 } 
 
-
 .card-img-top {
     
     width: 100%;
     height: 20vw;
-    
-   
 }
-/* .middle {
-    transition: 0.5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  
-  .card-img-top.active .image {
-    opacity: 0.3;
-  }
-  
-  .card-img-top.active .middle {
-    opacity: 1;
-  }  */
+
+.nav-link {
+    font-family: 'Open Sans', sans-serif !important;
+    font-style: italic;
+}
 
 .active {
     color: whitesmoke !important;
@@ -49,12 +33,9 @@ body {
     height: 3vw;
 }
 
-
-
 .compat-body {
     width: 100%;
     height: 9vw;
-
 }
 
 .card-title {
@@ -117,12 +98,8 @@ p {
     width: 100%;
     position: fixed;
     height: 30px;
-
 }
-
-
 
 .modal-title,.modal-body,.modal-footer,.modal-header,.m-content{
     background-color: white;
-    
 }
